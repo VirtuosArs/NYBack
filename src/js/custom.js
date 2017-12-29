@@ -125,6 +125,12 @@ $(document).ready(function() {
     
   })
 
+$('#exampleModalform2').on('show.bs.modal', function (event) {
+  //Store the first form data here and then close first modal
+  $('#cancelform1').click();
+});
+  
+
 $('#formGroupExampleInput1').keyup(function () {
   if ($(this).val() == '') {
       //Check to see if there is any text entered
@@ -141,7 +147,7 @@ $('#formGroupExampleInput1').keyup(function () {
   'use strict';
 
   window.addEventListener('load', function() {
-    var form = document.getElementById('firstform');
+    var form = document.getElementById('form1final');
     form.addEventListener('submit', function(event) {
       if (form.checkValidity() === false) {
         event.preventDefault();
