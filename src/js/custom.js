@@ -129,6 +129,16 @@ $(document).ready(function() {
 //   //Store the first form data here and then close first modal
 //   $('.cancelform1').click();
 // });
+
+
+$("#onlineform1").click(function(){
+  //Validate and Save the form data 
+  $('#exampleModalform1').modal('hide');
+  $('#exampleModalform2').modal('show');
+  // e.preventDefault();
+  $('body').css('overflow', 'hidden');
+  $('#exampleModalform2').css('overflow', 'auto');
+});
   
 $("#firstdetailsubmit").click(function(){
   //Validate and Save the form data 
@@ -137,6 +147,16 @@ $("#firstdetailsubmit").click(function(){
   // e.preventDefault();
   $('body').css('overflow', 'hidden');
   $('#exampleModalform3').css('overflow', 'auto');
+});
+
+
+$("#detailsubmit").click(function(){
+  //Validate and Save the form data 
+  $('#exampleModalform3').modal('hide');
+  $('#exampleModalthank').modal('show');
+  // e.preventDefault();
+  $('body').css('overflow', 'hidden');
+  $('#exampleModalthank').css('overflow', 'auto');
 });
 
 $('.cancelclass').click(function(e) {
