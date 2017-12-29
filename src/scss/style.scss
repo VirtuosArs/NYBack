@@ -1,0 +1,640 @@
+@import "variables.scss";
+@import "mixins.scss";
+@import "global.scss";
+@import "bootstrap-overrides.scss";
+@import "testimonials.scss";
+body {
+    color: $primary;
+    background: $white;
+}
+
+// Styling for the navbar
+#mainNav {
+    border-bottom: 1px solid fade-out($gray-900, .9);
+    background-color: $white;
+    @include sans-serif-font;
+    @include transition-all;
+    .navbar-brand {
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $primary;
+        @include sans-serif-font;
+        &:focus,
+        &:hover {
+            color: darken($primary, .1);
+        }
+    }
+    .img-logo {
+        max-width: 250px;
+        max-height: 60px;
+    }
+    .navbar-nav {
+        >li.nav-item {
+            >a.nav-link,
+            >a.nav-link:focus {
+                font-size: .9rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: $gray-900;
+                &:hover {
+                    color: $primary;
+                }
+                &.active {
+                    color: $primary !important;
+                    background-color: transparent;
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 992px) {
+        border-color: transparent;
+        background-color: transparent;
+        .navbar-brand {
+            color: fade-out($white, .3);
+            &:focus,
+            &:hover {
+                color: $primary;
+            }
+        }
+        .navbar-nav>li.nav-item>a.nav-link {
+            padding: 0.5rem 1rem;
+        }
+        .navbar-nav>li.nav-item>a.nav-link,
+        .navbar-nav>li.nav-item>a.nav-link:focus {
+            color: fade-out($white, .3);
+            &:hover {
+                color: $primary;
+            }
+            &.active {
+                border-bottom: 2px solid $primary;
+            }
+        }
+        &.navbar-shrink {
+            border-bottom: 1px solid fade-out($gray-900, .9);
+            background-color: $gray-900;
+            .navbar-brand {
+                color: $white;
+                &:focus,
+                &:hover {
+                    color: darken($primary, .1);
+                }
+            }
+            .navbar-nav>li.nav-item>a.nav-link,
+            .navbar-nav>li.nav-item>a.nav-link:focus {
+                color: $white;
+                &:hover {
+                    color: $primary;
+                }
+            }
+            .img-logo {
+                max-width: 250px;
+                max-height: 60px;
+            }
+        }
+        .img-logo {
+            max-width: 250px;
+            max-height: 100px;
+        }
+    }
+} // Styling for the masthead
+header.masthead {
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 56px);
+    background-image: url('../img/header1.JPG');
+    background-position: center center;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.7);
+    @include background-cover;
+    hr {
+        margin-top: 30px;
+        margin-bottom: 30px; // max-width: 95%;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-weight: 300;
+    }
+    @media (min-width: 768px) {
+        p {
+            font-size: 1.15rem;
+        }
+    }
+    @media (min-width: 992px) {
+        height: 100vh;
+        min-height: 650px;
+        padding-top: 0;
+        padding-bottom: 0;
+        h1 {
+            font-size: 3rem;
+        }
+    }
+    @media (min-width: 1200px) {
+        h1 {
+            font-size: 4rem;
+        }
+    }
+}
+
+.eventslist {
+    .oline {
+        border-color: $primary;
+    }
+    padding-top: 3rem;
+    .headerbar {
+        background: #000;
+        margin-top: 2rem;
+    }
+    hr {
+        max-width: 100% !important;
+        border-width: 2px;
+        border-color: $gray-500;
+    }
+    .eventbutton {
+        text-transform: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        color: #fff !important;
+    }
+    .eventhead {
+        margin-top: 1rem;
+    }
+    @media (min-width: 768px) {
+        h1 {
+            letter-spacing: 0.4rem;
+        } // .eventbutton {
+        //   width: auto;
+        //   margin-bottom: 0;
+        // }
+        .eventhead {
+            margin-top: 0;
+        }
+        .img-fluid,
+        .ch {
+            height: 360px;
+        }
+        .ch1 {
+            height: 527px;
+        }
+    }
+    .line2 {
+        // width: 72px;
+        // height: 59px;
+        // border-bottom: 1px solid $secondary;
+        // -webkit-transform:
+        //     translateY(20px)
+        //     translateX(5px)
+        //     rotate(-63deg);
+        // position: absolute;
+        // top: 24px;
+        // left: 74px;
+        @include lineslant;
+    }
+    .line3 {
+        @include lineslant;
+        left: 20rem;
+    }
+    .line2n {
+        @include lineslantn;
+    }
+    .line3n {
+        @include lineslantn;
+        left: 30rem;
+    }
+    @media (max-width: 768px) {
+        .line2 {
+            @include lineslant;
+            left: 47px;
+        }
+        .line3 {
+            @include lineslant;
+            left: 12rem;
+        }
+        .line2n {
+            @include lineslantn;
+            left: 54px;
+        }
+        .line3n {
+            @include lineslantn;
+            left: 20rem;
+        }
+    }
+    @media (min-width: 1024px) {
+        .eventbutton {
+            width: auto;
+            margin-bottom: 0;
+        }
+        .line2 {
+            @include lineslant;
+        }
+        .line3 {
+            @include lineslant;
+            left: 18rem;
+        }
+        .line2n {
+            @include lineslantn;
+        }
+        .line3n {
+            @include lineslantn;
+            left: 20rem;
+        }
+    }
+    @media (min-width: 1024px) {
+        .line3 {
+            @include lineslant;
+            left: 20rem;
+        }
+        .line3n {
+            @include lineslantn;
+            left: 30rem;
+        }
+    }
+    @media (min-width: 1024px) and (min-height: 1366px) {
+        .line3 {
+            @include lineslant;
+            left: 18rem;
+        }
+        .line3n {
+            @include lineslantn;
+            left: 20rem;
+        }
+    }
+    @media (min-width: 1024px) and (min-height: 768px) {
+        .line3 {
+            @include lineslant;
+            left: 18rem;
+        }
+        .line3n {
+            @include lineslantn;
+            left: 20rem;
+        }
+    }
+    @media (min-width: 1366px) and (min-height: 1024px) {
+        .line3 {
+            @include lineslant;
+            left: 20rem;
+        }
+        .line3n {
+            @include lineslantn;
+            left: 30rem;
+        }
+    }
+    @media (max-width: 480px) {
+        .blackhead {
+            font-size: 1.4rem;
+        }
+    }
+    .borderless td,
+    .borderless th {
+        border: none;
+    }
+    .thdata {
+        color: #000;
+        text-align: left;
+    }
+}
+
+// Styling for the portfolio section
+.portfolio {
+    background: $gray-200;
+    margin-bottom: -15px;
+    .portfolio-item {
+        position: relative;
+        display: block;
+        max-width: 25rem;
+        margin-bottom: 15px;
+        .portfolio-item-caption {
+            -webkit-transition: all ease 0.5s;
+            -moz-transition: all ease 0.5s;
+            transition: all ease 0.5s;
+            opacity: 0;
+            background-color: fade-out($primary, .1);
+            &:hover {
+                opacity: 1;
+            }
+            .portfolio-item-caption-content {
+                font-size: 1.5rem;
+            }
+        }
+    }
+    @media (min-width: 576px) {
+        margin-bottom: -30px;
+        .portfolio-item {
+            margin-bottom: 30px;
+        }
+    }
+    hr.star-dark:after {
+        color: #2C3E50;
+        background-color: $gray-200;
+    }
+    a {
+        text-decoration: none;
+    }
+    .containerimg {
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+    /* Bottom left text */
+    .bottom-left {
+        position: absolute;
+        bottom: 8px;
+        left: 16px;
+    }
+    .img-fluid {
+        box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.7) !important;
+    }
+}
+
+.portfolio-modal {
+    .portfolio-modal-dialog {
+        padding: 3rem 1rem;
+        min-height: calc(100vh - 2rem);
+        margin: 1rem calc(1rem - 8px);
+        position: relative;
+        z-index: 2;
+        -moz-box-shadow: 0 0 3rem 1rem fade-out(black, .5);
+        -webkit-box-shadow: 0 0 3rem 1rem fade-out(black, .5);
+        box-shadow: 0 0 3rem 1rem fade-out(black, .5);
+        .close-button {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            i {
+                line-height: 38px;
+            }
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        .moddetail {
+            background: $modaltable;
+        }
+    }
+    @media(min-width: 768px) {
+        .portfolio-modal-dialog {
+            min-height: 100vh;
+            padding: 5rem;
+            margin: 3rem calc(3rem - 8px);
+            h2 {
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+.carousel-item {
+    height: 100vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.7);
+}
+
+.h {
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#contact {
+    .submitbutton {
+        text-align: center;
+        button {
+            cursor: pointer;
+        }
+    }
+}
+
+footer {
+    hr {
+        max-width: 100% !important;
+        border-color: $gray-500;
+    }
+    .footabout {
+        font-size: 0.9rem;
+    }
+    .social {
+        color: $gray-500;
+    }
+    .footterms {
+        cursor: pointer;
+        color: $gray-600 !important;
+    } // @media(min-width: 768px) {
+    .foot2 {
+        border-left: 2px solid $gray-500;
+        left: 2.5rem;
+    } // }
+    .branch {
+        padding-top: 1.2rem;
+    }
+    .image-social {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+hr.star-light,
+hr.star-dark {
+    max-width: 15rem;
+    padding: 0;
+    text-align: center;
+    border: none;
+    border-top: solid 0.25rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+hr.star-light:after,
+hr.star-dark:after {
+    position: relative;
+    top: -.8em;
+    display: inline-block;
+    padding: 0 0.25em;
+    content: '\f005';
+    font-family: FontAwesome;
+    font-size: 2em;
+}
+
+hr.star-light {
+    border-color: #fff;
+}
+
+hr.star-light:after {
+    color: #fff;
+    background-color: #18BC9C;
+}
+
+hr.star-dark {
+    border-color: #2C3E50;
+}
+
+hr.star-dark:after {
+    color: #2C3E50;
+    background-color: white;
+}
+
+.tdata {
+    color: $gray-600;
+    text-align: left;
+}
+
+.button {
+    position: relative;
+    margin: 0;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 2.8px;
+    padding-bottom: 2.8px;
+    background: $primary;
+    color: white;
+    font-size: 1rem;
+}
+
+.buttonv {
+    position: relative;
+    margin: 0;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 2.8px;
+    padding-bottom: 2.8px;
+    background: $tbblue;
+    color: white;
+    font-size: 1rem;
+}
+
+.buttonv:hover,
+.button:hover {
+    color: $white;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+}
+
+.next::after {
+    border-style: solid;
+}
+
+
+/* Next Button */
+
+
+/* ----------- */
+
+.next::after {
+    right: -28px;
+    border-width: 14px;
+    border-color: transparent transparent transparent $primary;
+}
+
+.next:hover::after {
+    border-left-color: $primary;
+}
+
+#testimonials {
+    .card {
+        margin: 0 auto;
+    }
+    .card .carousel-item {
+        height: 200px;
+    }
+    .card .carousel-caption {
+        padding: 0;
+        right: 0;
+        left: 0;
+        color: #3d3d3d;
+    }
+    .card .carousel-caption h3 {
+        color: #3d3d3d;
+    }
+    .card .carousel-caption p {
+        line-height: 30px;
+    }
+    .card .carousel-caption .col-sm-3 {
+        display: flex;
+        align-items: center;
+    }
+    .card .carousel-caption .col-sm-9 {
+        text-align: left;
+    }
+    .card .carousel-control-prev,
+    .card .carousel-control-next {
+        color: #3d3d3d !important;
+        opacity: 1 !important;
+    }
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+
+//Style for indext.html ========
+
+.eh {
+    font-size: 1.8rem;
+    font-weight: 396;
+    letter-spacing: 0.2rem;
+}
+
+.ch1n {
+    height: 448px;
+}
+
+.eimgn {
+    height: 444px !important;
+}
+
+.l2n {
+    width: 102px !important;
+    top: 43px !important;
+    left: 72px !important;
+}
+
+.l3n {
+    width: 102px !important;
+    top: 43px !important;
+    left: 19rem !important;
+}
+// =============================
+
+.callinternational {
+    background: $gray-200;
+}
+
+.mainnavn {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.mhead {
+    letter-spacing: 0.3rem;
+}
+
+.checkboxn {
+    left: 1rem;
+}
+
+@media (max-width: 768px) {
+    .mbutton {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}

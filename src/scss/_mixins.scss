@@ -1,0 +1,71 @@
+@font-face {
+  font-family: din-regular;
+  src: url('../fonts/DINEngschriftStd.otf');
+}
+
+// Mixins
+@mixin transition-all() {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  @mixin background-cover() {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  @mixin serif-font() {
+    font-family: 'din-regular', 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  }
+  @mixin sans-serif-font() {
+    font-family: 'din-regular', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  @mixin lineslant() {
+    width: 72px;
+    height: 59px;
+    border-bottom: 1px solid $secondary;
+    -webkit-transform:
+        translateY(20px)
+        translateX(5px)
+        rotate(-63deg);
+    position: absolute;
+    top: 24px;
+    left: 74px;
+  } 
+
+  @mixin lineslantn() {
+    width: 111px;
+    height: 74px;
+    border-bottom: 1px solid $secondary;
+    -webkit-transform:
+        translateY(20px)
+        translateX(5px)
+        rotate(-63deg);
+    position: absolute;
+    top: 24px;
+    left: 48px;
+  } 
+  
+
+  @mixin buttonevent() {
+    .button {
+      position: relative;
+      margin: 0;
+      padding-left: 14px;
+      padding-right: 14px;
+      padding-top: 2.8px;
+      padding-bottom: 2.8px;
+      // background: $primary;
+      color: white;
+      font-size: 14px;
+    }
+    .button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 0;
+      height: 0;
+    }
+  }
