@@ -125,11 +125,34 @@ $(document).ready(function() {
     
   })
 
-$('#exampleModalform2').on('show.bs.modal', function (event) {
-  //Store the first form data here and then close first modal
-  $('.cancelform1').click();
-});
+// $('#exampleModalform2').on('show.bs.modal', function (event) {
+//   //Store the first form data here and then close first modal
+//   $('.cancelform1').click();
+// });
   
+$("#firstdetailsubmit").click(function(){
+  //Validate and Save the form data 
+  $('#exampleModalform2').modal('hide');
+  $('#exampleModalform3').modal('show');
+  // e.preventDefault();
+  $('body').css('overflow', 'hidden');
+  $('#exampleModalform3').css('overflow', 'auto');
+});
+
+$('.cancelclass').click(function(e) {
+  e.preventDefault();
+$('body').css('overflow', 'auto');
+});
+
+$('#exampleModalform3').click(function(e) {
+  e.preventDefault();
+$('body').css('overflow', 'auto');
+});
+
+// $('body').click(function(e) {
+//   e.preventDefault();
+// $('body').css('overflow', 'auto');
+// });
 
 $('#formGroupExampleInput1').keyup(function () {
   if ($(this).val() == '') {
