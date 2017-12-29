@@ -1051,3 +1051,7 @@ hr.star-dark:after {
 .modal-body {
   color: #808083;
 }
+
+select {
+  min-width: 100%;
+}

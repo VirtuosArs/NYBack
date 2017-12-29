@@ -647,3 +647,7 @@ hr.star-dark:after {
 .modal-body {
     color: $secondary;
 }
+
+select {
+    min-width: 100%;
+}
