@@ -127,7 +127,7 @@ $(document).ready(function() {
 
 $('#exampleModalform2').on('show.bs.modal', function (event) {
   //Store the first form data here and then close first modal
-  $('#cancelform1').click();
+  $('.cancelform1').click();
 });
   
 

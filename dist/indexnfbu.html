@@ -182,10 +182,10 @@
                     <br>
                     <button class="btn btn-secondary pull-left eventbutton d-block d-sm-none">View Camp Info, Itinerary, Package</button>
                     <!-- <button class="btn btn-primary pull-right eventbutton d-block d-sm-none" id="trianglebutton">INR 7500 Block a seat </button> -->
-                    <button class="btn btn-primary pull-right eventbutton d-block d-sm-none" id="trianglebutton" data-toggle="modal" data-target="#exampleModalform1">INR 25000 Book Now</button>
+                    <button class="btn btn-primary pull-right eventbutton d-block d-sm-none" id="trianglebutton" data-toggle="modal" data-target="#exampleModalform2">INR 25000 Book Now</button>
                     <a href="#" class="pull-left buttonv eventbutton d-none d-sm-block">View Camp Info, Itinerary, Package</a>
                     <!-- <a href="#" class="pull-left button next eventbutton d-none d-sm-block">INR 7500 Block a seat </a> -->
-                    <a class="pull-right button next eventbutton d-none d-sm-block" data-toggle="modal" data-target="#exampleModalform1" data-whatever="@mdo">INR 25000 Book Now</a>
+                    <a class="pull-right button next eventbutton d-none d-sm-block" data-toggle="modal" data-target="#exampleModalform3" data-whatever="@mdo">INR 25000 Book Now</a>
                 </div>
             </div>
             <br>
@@ -725,7 +725,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title text-center" id="exampleModalLabel">Booking Form</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" id="c1">&times;</span>
+                        <span aria-hidden="true" class="cancelform1">&times;</span>
                     </button>
                 </div>
 
@@ -758,7 +758,7 @@
                             <div class="row">
                                 <div class="col-md-5 col-sm-12 mx-auto">
                                     <button type="submit" class="btn btn-primary mbutton mx-auto" id="onlineform1" data-toggle="modal" data-target="#exampleModalform2">Request to book</button>
-                                    <button type="button" class="btn btn-primary mbutton" data-dismiss="modal" id="cancelform1">Cancel</button>
+                                    <button type="button" class="btn btn-primary mbutton cancelform1" data-dismiss="modal">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -811,30 +811,67 @@
                             <!-- <label for="number" class="col-form-label">Number of Participants</label> -->
                             <input type="text" class="form-control" id="numberpart" name="numberpart" required placeholder="Parent / Guardian Occupation">
                         </div>
-                        <div class="form-group">
-                            <label for="number" class="col-form-label">Batch</label>
-                            <select id="batch" class="form-control" required>
-                                <option>14th to 15th</option>
-                                <option>...</option>
-                            </select>
+                        <div class="row">
+                            <div class="col">
+                                <!-- <input type="text" class="form-control" placeholder="Gender"> -->
+                                <select class="custom-select" id="inlineFormCustomSelect">
+                                    <option selected>Gender</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select class="custom-select" id="inlineFormCustomSelect">
+                                    <option selected>Blood Group</option>
+                                    <option value="1">O-positive</option>
+                                    <option value="2">O-negative</option>
+                                    <option value="3">A-positive</option>
+                                    <option value="4">A-negative</option>
+                                    <option value="5">B-positive</option>
+                                    <option value="6">B-negative</option>
+                                    <option value="7">AB-positive</option>
+                                    <option value="8">AB-negative</option>
+                                </select>
+
+                            </div>
+                            <div class="col">
+                                <select class="custom-select" id="inlineFormCustomSelect">
+                                    <option selected>Special Dietary Needs</option>
+                                    <option value="1">Vej</option>
+                                    <option value="2">Non-vej</option>
+                                    <option value="2">Jain</option>
+                                </select>
+
+                            </div>
                         </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="date" class="form-control" placeholder="Date of Birth">
+                            </div>
+                            <div class="col">
+                                <input type="number" class="form-control" placeholder="Age">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Nationality">
+                            </div>
+
+                        </div>
+                        <br>
                         <div class="form-group">
-                            <label for="number" class="col-form-label">Price per Partcipant</label>
-                            <input class="form-control" type="text" placeholder="INR 13500" readonly>
-                            <p>Triple sharing + Airfare actual</p>
+                            <!-- <label for="number" class="col-form-label">Number of Participants</label> -->
+                            <input type="text" class="form-control" name="allergies" placeholder="Known Allergies">
                         </div>
 
-                        <div class="form-group">
-                            <label for="number" class="col-form-label">Total Price</label>
-                            <input class="form-control" type="text" placeholder="INR 13500" readonly>
-                            <p>Triple sharing + Airfare actual</p>
-                        </div>
+
+
+
                         <hr class="fullwidthhr">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-5 col-sm-12 mx-auto">
-                                    <button type="button" class="btn btn-primary mbutton mx-auto" id="online" disabled>Request to book</button>
-                                    <button type="button" class="btn btn-primary mbutton" data-dismiss="modal" id="cancelform2">Cancel</button>
+                                <div class="col-md-3 col-sm-12 mx-auto">
+                                    <button type="submit" class="btn btn-primary mbutton mx-auto" id="detailsubmit">SUBMIT</button>
+                                    <!-- <button type="button" class="btn btn-primary mbutton" data-dismiss="modal" id="cancelform2">Cancel</button> -->
                                 </div>
                             </div>
                         </div>
@@ -843,6 +880,92 @@
             </div>
         </div>
     </div>
+
+    <!-- Third Modal form -->
+    <div class="modal fade" id="exampleModalform3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="exampleModalLabel">Parent / Guardian Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+    
+                    <div class="modal-body">
+                        <form id="form3final">
+                                <div class="row">
+                                        <div class="col">
+                                                <select class="custom-select" id="inlineFormCustomSelect">
+                                                        <option selected>Relationship with Participant</option>
+                                                        <option value="1">Mother</option>
+                                                        <option value="2">Father</option>
+                                                        <option value="1">Blood Relative</option>
+                                                        <option value="2">Legal Guardian</option>
+                                                    </select>
+                                            </div>
+                                            </div>
+                                            <br>
+                            <div class="form-group">
+                                <!-- <label for="number" class="col-form-label">Number of Participants</label> -->
+                                <input type="text" class="form-control" name="pfirstname" required placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="number" class="col-form-label">Number of Participants</label> -->
+                                <input type="text" class="form-control" name="pmiddlename" placeholder="Middle Name">
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="number" class="col-form-label">Number of Participants</label> -->
+                                <input type="text" class="form-control" name="plastname" required placeholder="Last Name">
+                            </div>
+                            <div class="form-group">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Residence Address"></textarea>
+                            </div>
+                            <div class="row">
+                                    <div class="col">
+                                            <select class="custom-select" id="mobile1">
+                                                    <option selected>Tel1</option>
+                                                    <option value="1">Home</option>
+                                                    <option value="2">Office</option>
+                                                    <option value="3">Mobile</option>
+                                                </select>
+                                    </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="mobile1" placeholder="Phone number">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                    <div class="col">
+                                            <select class="custom-select" id="mobile1">
+                                                    <option selected>Tel2</option>
+                                                    <option value="1">Home</option>
+                                                    <option value="2">Office</option>
+                                                    <option value="3">Mobile</option>
+                                                </select>
+                                    </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="mobile1" placeholder="Phone number">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email Id" required>
+                            </div>
+                            <hr class="fullwidthhr">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-12 mx-auto">
+                                        <button type="submit" class="btn btn-primary mbutton mx-auto" id="detailsubmit">SUBMIT</button>
+                                        <!-- <button type="button" class="btn btn-primary mbutton" data-dismiss="modal" id="cancelform2">Cancel</button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -879,23 +1002,26 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Data Submitted</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Thank you for registering!</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Thank you for registering for the camp. To confirm your booking, please desposit a cheque in favour of
-                        <strong>‘Trailblazers Adventure Travel Pvt. Ltd’</strong> or deposit cash at your nearest branch using the
+                    <p>To confirm your booking, please desposit a cheque in favour of <br>
+                        <strong>‘Trailblazers Adventure Travel Pvt. Ltd’</strong> <br> or <br> deposit cash at your nearest branch using the
                         following bank details.</p>
-                    <p>ACCOUNT NAME: TRAILBLAZERS ADVENTURE TRAVEL PVT.LTD.
-                        <br>BANK NAME: IDBI BANK LTD.
-                        <br>ACCOUNT NUMBER: 0753102000001328
-                        <br>BRANCH: VASANT VIHAR.THANE (W), MAHARASHTRA</p>
-                    <p>Please email us the proof of payment at camps@trailblazersindia.com with the subject line as 'Payment
+                        <div class="jumbotron">
+                                <p>ACCOUNT NAME: TRAILBLAZERS ADVENTURE TRAVEL PVT.LTD.
+                                        <br>BANK NAME: IDBI BANK LTD.
+                                        <br>ACCOUNT NUMBER: 0753102000001328
+                                        <br>BRANCH: VASANT VIHAR.THANE (W), MAHARASHTRA</p>
+                        </div>
+                    
+                    <p>Please email us the proof of payment at camps@trailblazersindia.com <br> with the subject line as <br> 'Payment
                         for
                         <ParticipantName>,
-                            <Program Name>'. Looking forward to camping with you!"</p>
+                            <Program Name>'. <br> <span> Looking forward to camping with you! </span></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
