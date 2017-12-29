@@ -1042,3 +1042,12 @@ hr.star-dark:after {
     margin-bottom: 1rem;
   }
 }
+
+.fullwidthhr {
+  max-width: 100% !important;
+  border-color: #adb5bd;
+}
+
+.modal-body {
+  color: #808083;
+}

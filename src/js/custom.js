@@ -135,3 +135,19 @@ $('#formGroupExampleInput1').keyup(function () {
       $('#bt2').prop('disabled', false);
   }
 });
+
+
+(function() {
+  'use strict';
+
+  window.addEventListener('load', function() {
+    var form = document.getElementById('firstform');
+    form.addEventListener('submit', function(event) {
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  }, false);
+})();

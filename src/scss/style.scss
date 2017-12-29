@@ -638,3 +638,12 @@ hr.star-dark:after {
         margin-bottom: 1rem;
     }
 }
+
+.fullwidthhr {
+        max-width: 100% !important;
+        border-color: $gray-500;
+}
+
+.modal-body {
+    color: $secondary;
+}
