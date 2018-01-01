@@ -182,10 +182,10 @@
                     <br>
                     <button class="btn btn-secondary pull-left eventbutton d-block d-sm-none">View Camp Info, Itinerary, Package</button>
                     <!-- <button class="btn btn-primary pull-right eventbutton d-block d-sm-none" id="trianglebutton">INR 7500 Block a seat </button> -->
-                    <button class="btn btn-primary pull-right eventbutton d-block d-sm-none" id="trianglebutton" data-toggle="modal" data-target="#exampleModalform2">INR 25000 Book Now</button>
+                    <button class="btn btn-primary pull-right eventbutton d-block d-sm-none" id=" id="booknow" data-toggle="modal" data-target="#exampleModalform1">INR 25000 Book Now</button>
                     <a href="#" class="pull-left buttonv eventbutton d-none d-sm-block">View Camp Info, Itinerary, Package</a>
                     <!-- <a href="#" class="pull-left button next eventbutton d-none d-sm-block">INR 7500 Block a seat </a> -->
-                    <a class="pull-right button next eventbutton d-none d-sm-block" data-toggle="modal" data-target="#exampleModalform2" data-whatever="@mdo">INR 25000 Book Now</a>
+                    <a class="pull-right button next eventbutton d-none d-sm-block" id="booknow"  data-toggle="modal" data-target="#exampleModalform1" data-whatever="@mdo">INR 25000 Book Now</a>
                 </div>
             </div>
             <br>
@@ -719,6 +719,67 @@
     </footer>
 
     <!-- First form Modal -->
+    <div class="modal fade saveState" id="exampleModalform1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="exampleModalLabel">Participant</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form id="form1final" class="container contact-form" novalidate>
+                    <div class="form-group">
+                        <!-- <label for="number" class="col-form-label">Number of Participants</label> -->
+                        <input type="text" class="form-control" id="numberpart" name="numberpart" placeholder="Number of Participants" required>
+                        <div class="invalid-feedback">
+                            Please provide Number of Participants.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="number" class="col-form-label">Batch</label>
+                        <select id="batch" class="form-control" name="batch" placeholder="Batch" required>
+                            <!-- <option selected>Batch</option> -->
+                            <option value="1">14th to 15th</option>
+                            <option value="2">...</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a batch
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="number" class="col-form-label">Price per Partcipant (INR)</label>
+                        <input class="form-control" type="text" id="price" placeholder="13500" name="price" value="13500" readonly>
+                        <p>Triple sharing + Airfare actual</p>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="number" class="col-form-label">Total Price (INR)</label>
+                        <input class="form-control" type="text" id="totalprice" placeholder="0" name="totalprice" value="0" readonly>
+                        <p>Triple sharing + Airfare actual</p>
+                    </div>
+                    <hr class="fullwidthhr">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12 mx-auto">
+                                <button type="submit" class="btn btn-primary mbutton mx-auto" id="onlineform1">Request to book</button>
+                                <button type="button" class="btn btn-primary mbutton cancelform1" data-dismiss="modal">Cancel</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
     <div class="modal fade" id="exampleModalform1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -1147,6 +1208,7 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- Plugin JavaScript -->
     <script src="js/scripts.min.js"></script>
+    
     <script src="js/custom.min.js"></script>
 </body>
 

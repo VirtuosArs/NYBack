@@ -108,6 +108,78 @@
 
 // When the DOM is ready, run this function
 $(document).ready(function() {
+  $("#numberpart").change(function () {
+    
+                    var price = Number($(this).val());
+                    // console.log(price)
+                    var total = price * 13500;
+                    $('#totalprice').attr("placeholder", total);
+                    $('#totalprice').attr("value", total);
+                });
+    
+    
+    
+                function updatePrice(val) {
+                    $("#numberpart").val(val);
+                    $("#numberpart").trigger('change');
+                }
+    
+                // updatePrice(1);
+                $("#onlineform1").click(function (e) {
+    
+                    var pname = $("#numberpart").val();
+                    // var name = $("#name").val();
+                    // var email = $("#email").val();
+                    // var msg = $("#msg").val();
+                    if (!(pname == '')) {
+                        // $("#submitdata").empty();
+                        e.preventDefault();
+                        var pname = $("#numberpart").val();
+                        var values = {};
+                        var price = $('#price').val();
+                        var tp = price * pname;
+                        console.log("Price ==> " + price + "And Total==> " + tp);
+                        // document.getElementById("totalprice").placeholder = tp;
+                        $('#totalprice').attr("placeholder", tp);
+                        $('#totalprice').attr("value", tp);
+                        $.each($('#form1final').serializeArray(), function (i, field) {
+                            values[field.name] = field.value;
+                            // valueform1[field.name] = field.value;
+                        });
+                        console.log("Here..");
+                        console.log(values);
+                        console.log("Filled data...");
+                        $('#exampleModalform1').modal('hide');
+                        $('#exampleModalform2').modal('show');
+                        $('body').css('overflow', 'hidden');
+                        $('#exampleModalform2').css('overflow', 'auto');
+    
+                        // $("#submitdata").append("Name: " + pname + "Values" + values);
+                    }
+                    else {
+                        // alert("Please Fill All Fields.");
+                        console.log("Else..")
+                        var form = document.getElementById('form1final');
+    
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                            var values = {};
+                            // var pname = $("#numberpart").val();
+                            $.each($('#form1final').serializeArray(), function (i, field) {
+                                values[field.name] = field.value;
+                            });
+                            // console.log("Here..");
+                            // e.preventDefault();
+                            // console.log(pname);
+                            // console.log(values);
+                        }, false);
+                    }
+                });
+
     //Set the carousel options
     $('#quote-carousel').carousel({
       pause: true,
@@ -115,15 +187,12 @@ $(document).ready(function() {
     });
   });
 
-  $('#exampleModal1').on('show.bs.modal', function (event) {
-    $('#c1').click();
+  // $('#exampleModal1').on('show.bs.modal', function (event) {
+  //   $('#c1').click();
     
-  })
+  // })
 
-  $('#exampleModal2').on('show.bs.modal', function (event) {
-    $('#c1').click();
-    
-  })
+  
 
 // $('#exampleModalform2').on('show.bs.modal', function (event) {
 //   //Store the first form data here and then close first modal
@@ -131,14 +200,12 @@ $(document).ready(function() {
 // });
 
 
-$("#onlineform1").click(function(){
-  //Validate and Save the form data 
-  $('#exampleModalform1').modal('hide');
-  $('#exampleModalform2').modal('show');
-  // e.preventDefault();
-  $('body').css('overflow', 'hidden');
-  $('#exampleModalform2').css('overflow', 'auto');
-});
+// $("#onlineform1").click(function(){
+//   $('#exampleModalform1').modal('hide');
+//   $('#exampleModalform2').modal('show');
+//   $('body').css('overflow', 'hidden');
+//   $('#exampleModalform2').css('overflow', 'auto');
+// });
   
 $("#firstdetailsubmit").click(function(){
   //Validate and Save the form data 
@@ -184,19 +251,3 @@ $('#formGroupExampleInput1').keyup(function () {
       $('#bt2').prop('disabled', false);
   }
 });
-
-
-(function() {
-  'use strict';
-
-  window.addEventListener('load', function() {
-    var form = document.getElementById('form1final');
-    form.addEventListener('submit', function(event) {
-      if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      form.classList.add('was-validated');
-    }, false);
-  }, false);
-})();
