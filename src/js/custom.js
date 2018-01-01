@@ -167,10 +167,14 @@ $(document).ready(function() {
   // updatePrice(1);
   $("#onlineform1").click(function(e) {
     var pname = $("#numberpart").val();
+    var batch = $("#batch").val();
+    var batch = $('#batch').find(":selected").val();
+    // $('#aioConceptName').find(":selected").text();
+    console.log("Batch ==> "+batch);
     // var name = $("#name").val();
     // var email = $("#email").val();
     // var msg = $("#msg").val();
-    if (!(pname == "")) {
+    if (!(pname == "" || batch == "")) {
       // $("#submitdata").empty();
       e.preventDefault();
       var pname = $("#numberpart").val();
@@ -187,7 +191,7 @@ $(document).ready(function() {
       });
       console.log("Here..");
       console.log(values);
-      console.log("Filled data...");
+      console.log("Filled booking data...");
       $("#exampleModalform1").modal("hide");
       $("#exampleModalform2").modal("show");
       $("body").css("overflow", "hidden");
@@ -222,6 +226,167 @@ $(document).ready(function() {
     }
   });
 
+
+  
+
+  $("#firstdetailsubmit").click(function(e) {
+    console.log("In second form");
+    var fname = $("#fname").val();
+    var lname = $("#lname").val();
+    var email = $("#email").val();
+    var validemail = isValidEmailAddress(email);
+    console.log("valdEmail ==> "+ validemail);
+    var bloodgroup = $('#bloodgroup').find(":selected").val();
+    var meal = $('#meal').find(":selected").val();
+    function isValidEmailAddress(emailAddress) {
+      var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+      return pattern.test(emailAddress);
+  };
+  
+    if (!(fname == "" || lname == "" || validemail == false || bloodgroup == "" || meal == "")) {
+      // $("#submitdata").empty();
+      e.preventDefault();
+      var values2 = {};
+      $.each($("#form2final").serializeArray(), function(i, field) {
+        values2[field.name] = field.value;
+        // valueform1[field.name] = field.value;
+      });
+      console.log("Here..");
+      console.log(values2);
+      console.log("Filled participant data...");
+      $("#exampleModalform2").modal("hide");
+      $("#exampleModalform3").modal("show");
+      $("body").css("overflow", "hidden");
+      $("#exampleModalform3").css("overflow", "auto");
+
+      // $("#submitdata").append("Name: " + pname + "Values" + values);
+    } else {
+      // alert("Please Fill All Fields.");
+      console.log("Else..");
+      var form = document.getElementById("form2final");
+
+      form.addEventListener(
+        "submit",
+        function(event) {
+          var email = $("#email").val();
+          var validemail = isValidEmailAddress(email);
+          console.log("Email submit ==> "+ email);
+          if (form.checkValidity() === false || validemail === false) {
+            event.preventDefault();
+            event.stopPropagation();
+            if(validemail === false) {
+              console.log(validemail);
+              console.log("Email Invalid..........");
+              $("#email").next().empty();
+              $("#email").next().text("Email is invalid.");
+              $(".emailinvalid").css('display', 'block');
+            }
+            else{
+              console.log(validemail);
+              console.log("Email Valid...");
+              $(".emailinvalid").css('display', 'none');
+            }
+          }
+          form.classList.add("was-validated");
+          // e.preventDefault();
+          var values2 = {};
+          // var pname = $("#numberpart").val();
+          $.each($("#form2final").serializeArray(), function(i, field) {
+            values2[field.name] = field.value;
+          });
+          // console.log("Here..");
+          // e.preventDefault();
+          // console.log(pname);
+          // console.log(values);
+        },
+        false
+      );
+    }
+  });
+
+
+  
+  $("#detailsubmit").click(function(e) {
+    console.log("In third form");
+    var relation = $('#relation').find(":selected").val();
+    var pfname = $("#pfname").val();
+    var plname = $("#plname").val();
+    var pemail = $("#pemail").val();
+    var validemail = isValidEmailAddress(pemail);
+    console.log("valdEmail ==> "+ validemail);
+    var number = $("#contactno1").val();
+    var numbertype = $('#contacttype1').find(":selected").val();
+    function isValidEmailAddress(emailAddress) {
+      var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+      return pattern.test(emailAddress);
+  };
+  
+    if (!(pfname == "" || plname == "" || validemail == false || relation == "" || numbertype == "" || number == "")) {
+      // $("#submitdata").empty();
+      e.preventDefault();
+      var values3 = {};
+      $.each($("#form3final").serializeArray(), function(i, field) {
+        values3[field.name] = field.value;
+        // valueform1[field.name] = field.value;
+      });
+      console.log("Here..");
+      console.log(values3);
+      console.log("Filled participant parent data...");
+      $("#exampleModalform3").modal("hide");
+      $("#exampleModalthank").modal("show");
+      $("body").css("overflow", "hidden");
+      $("#exampleModalthank").css("overflow", "auto");
+
+      // $("#submitdata").append("Name: " + pname + "Values" + values);
+    } else {
+      // alert("Please Fill All Fields.");
+      console.log("Else..");
+      var form = document.getElementById("form3final");
+      // var form = $("#form3final");
+      // console.log(form);
+
+      form.addEventListener(
+        "submit",
+        function(event) {
+          var pemail = $("#pemail").val();
+          var validemail = isValidEmailAddress(pemail);
+          console.log("Email submit ==> "+ pemail);
+          if (form.checkValidity() === false || validemail === false) {
+            event.preventDefault();
+            event.stopPropagation();
+            if(validemail === false) {
+              console.log(validemail);
+              console.log("Email Invalid..........");
+              $("#pemail").next().empty();
+              $("#pemail").next().text("Email is invalid.");
+              $(".emailinvalid").css('display', 'block');
+            }
+            else{
+              console.log(validemail);
+              console.log("Email Valid...");
+              $(".emailinvalid").css('display', 'none');
+            }
+          }
+          form.classList.add("was-validated");
+          // e.preventDefault();
+          console.log("Clcked submitt......");
+          var values3 = {};
+          // var pname = $("#numberpart").val();
+          $.each($("#form3final").serializeArray(), function(i, field) {
+            values3[field.name] = field.value;
+          });
+          // console.log("Here..");
+          // e.preventDefault();
+          // console.log(pname);
+          // console.log(values);
+        },
+        false
+      );
+    }
+  });
+ 
+
+
   //Set the carousel options
   $("#quote-carousel").carousel({
     pause: true,
@@ -246,33 +411,29 @@ $(document).ready(function() {
 //   $('#exampleModalform2').css('overflow', 'auto');
 // });
 
-$("#firstdetailsubmit").click(function() {
-  //Validate and Save the form data
-  $("#exampleModalform2").modal("hide");
-  $("#exampleModalform3").modal("show");
-  // e.preventDefault();
-  $("body").css("overflow", "hidden");
-  $("#exampleModalform3").css("overflow", "auto");
-});
+// $("#firstdetailsubmit").click(function() {
+//   $("#exampleModalform2").modal("hide");
+//   $("#exampleModalform3").modal("show");
+//   $("body").css("overflow", "hidden");
+//   $("#exampleModalform3").css("overflow", "auto");
+// });
 
-$("#detailsubmit").click(function() {
-  //Validate and Save the form data
-  $("#exampleModalform3").modal("hide");
-  $("#exampleModalthank").modal("show");
-  // e.preventDefault();
-  $("body").css("overflow", "hidden");
-  $("#exampleModalthank").css("overflow", "auto");
-});
+// $("#detailsubmit").click(function() {
+//   $("#exampleModalform3").modal("hide");
+//   $("#exampleModalthank").modal("show");
+//   $("body").css("overflow", "hidden");
+//   $("#exampleModalthank").css("overflow", "auto");
+// });
 
 $(".cancelclass").click(function(e) {
   e.preventDefault();
   $("body").css("overflow", "auto");
 });
 
-$("#exampleModalform3").click(function(e) {
-  e.preventDefault();
-  $("body").css("overflow", "auto");
-});
+// $("#exampleModalform3").click(function(e) {
+//   e.preventDefault();
+//   $("body").css("overflow", "auto");
+// });
 
 // $('body').click(function(e) {
 //   e.preventDefault();

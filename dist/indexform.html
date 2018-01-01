@@ -734,7 +734,7 @@
                 <form id="form1final" class="container contact-form" novalidate>
                     <div class="form-group">
                         <!-- <label for="number" class="col-form-label">Number of Participants</label> -->
-                        <input type="number" class="form-control" id="numberpart" name="numberpart" placeholder="Number of Participants" required>
+                        <input type="text" class="form-control" id="numberpart" name="numberpart" placeholder="Number of Participants" required>
                         <div class="invalid-feedback">
                             Please provide Number of Participants.
                         </div>
@@ -904,79 +904,61 @@
                 </div>
 
                 <div class="modal-body">
-                    <form id="form3final" class="container contact-form3" novalidate>
-                        <!-- <div class="col"> -->
-                            <div class="form-group">
-                                <select class="custom-select" id="relation" name="relation" required>
-                                    <option value="" disabled selected>Relationship with Participant</option>
+                    <form id="form3final">
+                        <div class="row">
+                            <div class="col form-group">
+                                <select class="custom-select" id="inlineFormCustomSelect">
+                                    <option selected>Relationship with Participant</option>
                                     <option value="1">Mother</option>
                                     <option value="2">Father</option>
                                     <option value="1">Blood Relative</option>
                                     <option value="2">Legal Guardian</option>
                                 </select>
-                                <div class="invalid-feedback">
-                                        Please provide relationship.
-                                    </div>
                             </div>
-                        <!-- </div> -->
-                        <div class="form-group">
-                            <!-- <label for="number" class="col-form-label">Number of Participants</label> -->
-                            <input type="text" class="form-control" name="pfirstname" id="pfname" required  placeholder="First Name">
-                            <div class="invalid-feedback">
-                                    Please provide First Name of parent or guardian.
-                                </div>
                         </div>
                         <div class="form-group">
                             <!-- <label for="number" class="col-form-label">Number of Participants</label> -->
-                            <input type="text" class="form-control" name="pmiddlename" id="pmname" placeholder="Middle Name">
+                            <input type="text" class="form-control" name="pfirstname" required placeholder="First Name">
                         </div>
                         <div class="form-group">
                             <!-- <label for="number" class="col-form-label">Number of Participants</label> -->
-                            <input type="text" class="form-control" name="plastname" id="plname" required placeholder="Last Name">
-                            <div class="invalid-feedback">
-                                    Please provide Last Name of parent or guardian.
-                                </div>
+                            <input type="text" class="form-control" name="pmiddlename" placeholder="Middle Name">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="address" name="address" rows="3" placeholder="Residence Address"></textarea>
+                            <!-- <label for="number" class="col-form-label">Number of Participants</label> -->
+                            <input type="text" class="form-control" name="plastname" required placeholder="Last Name">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Residence Address"></textarea>
                         </div>
                         <div class="row">
                             <div class="col-3 form-group">
-                                <select class="custom-select" id="contacttype1" name="contacttype1" required>
-                                    <option value="" disabled selected>Tel1</option>
-                                    <option value="1">Home</option>
-                                    <option value="2">Office</option>
-                                    <option value="3">Mobile</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                        Please select number type
-                                    </div>
-                            </div>
-                            <div class="col-9 form-group">
-                                <input type="number" class="form-control" name="contactno1"  id="contactno1" placeholder="Phone number" required>
-                                <div class="invalid-feedback">
-                                        Please enter phone number
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3 form-group">
-                                <select class="custom-select" id="contacttype2" name="contacttype2">
-                                    <option value="" disabled selected>Tel2</option>
+                                <select class="custom-select" id="mobile1">
+                                    <option selected>Tel1</option>
                                     <option value="1">Home</option>
                                     <option value="2">Office</option>
                                     <option value="3">Mobile</option>
                                 </select>
                             </div>
                             <div class="col-9 form-group">
-                                <input type="number" class="form-control" name="contactno2"  id="contactno2" placeholder="Phone number">
+                                <input type="text" class="form-control" name="mobile1" placeholder="Phone number">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 form-group">
+                                <select class="custom-select" id="mobile1">
+                                    <option selected>Tel2</option>
+                                    <option value="1">Home</option>
+                                    <option value="2">Office</option>
+                                    <option value="3">Mobile</option>
+                                </select>
+                            </div>
+                            <div class="col-9 form-group">
+                                <input type="text" class="form-control" name="mobile1" placeholder="Phone number">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email Id" name="pemail" id="pemail" required>
-                            <div class="invalid-feedback emailinvalid">
-                                    Please enter the email id of parent or guardian
-                                </div>
+                            <input type="email" class="form-control" placeholder="Email Id" required>
                         </div>
                         <hr class="fullwidthhr">
                         <div class="container">
