@@ -151,6 +151,8 @@
 
 // When the DOM is ready, run this function
 $(document).ready(function() {
+  static var totalpartcipant = 1;
+
   $("#numberpart").change(function() {
     var price = Number($(this).val());
     // console.log(price)
@@ -164,9 +166,11 @@ $(document).ready(function() {
     $("#numberpart").trigger("change");
   }
 
+
   // updatePrice(1);
   $("#onlineform1").click(function(e) {
     var pname = $("#numberpart").val();
+    totalpartcipant = pname;
     var batch = $("#batch").val();
     var batch = $('#batch').find(":selected").val();
     // $('#aioConceptName').find(":selected").text();
@@ -229,6 +233,8 @@ $(document).ready(function() {
 
   
 
+  
+
   $("#firstdetailsubmit").click(function(e) {
     console.log("In second form");
     var fname = $("#fname").val();
@@ -256,6 +262,7 @@ $(document).ready(function() {
       console.log("Filled participant data...");
       $("#exampleModalform2").modal("hide");
       $("#exampleModalform3").modal("show");
+      document.getElementById("form3final").reset(); 
       $("body").css("overflow", "hidden");
       $("#exampleModalform3").css("overflow", "auto");
 
@@ -336,6 +343,28 @@ $(document).ready(function() {
       $("#exampleModalthank").modal("show");
       $("body").css("overflow", "hidden");
       $("#exampleModalthank").css("overflow", "auto");
+      console.log(i);
+      console.log(totalpartcipant);
+
+      //values , values2 , values3
+      //Save the data to google form here 
+
+      count = 1;
+      while(count <= totalpartcipant){
+        console.log(count);
+        console.log("Partcipant ==> "+ count);
+        // finalclose .click(function(e) {
+        $("#finalclose").click(function(e) {
+          count++;
+          console.log(count);
+          console.log("Value of count ==> "+ count);
+          e.preventDefault();           
+          $("#exampleModalform2").modal("show");
+          document.getElementById("form2final").reset();
+          $("body").css("overflow", "hidden");
+          $("#exampleModalform2").css("overflow", "auto");
+        });
+      }
 
       // $("#submitdata").append("Name: " + pname + "Values" + values);
     } else {
@@ -384,7 +413,7 @@ $(document).ready(function() {
       );
     }
   });
- 
+
 
 
   //Set the carousel options

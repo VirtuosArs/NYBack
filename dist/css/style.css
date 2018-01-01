@@ -1055,3 +1055,7 @@ hr.star-dark:after {
 select {
   min-width: 100%;
 }
+
+.thankyoumessage {
+  text-align: center;
+}
