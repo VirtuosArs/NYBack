@@ -1187,3 +1187,36 @@ select {
 .sectionabove {
   margin-bottom: -4rem;
 }
+
+.ptopspace {
+  padding-top: 3.5rem;
+}
+
+.modal-content {
+  letter-spacing: 0.05rem;
+  font-size: 1.1rem;
+}
+
+.modal-header h5 {
+  font-size: 1.8rem;
+  letter-spacing: 0.05rem;
+  padding-left: 41%;
+}
+
+.thankhead {
+  padding-left: 34% !important;
+}
+
+@media (max-width: 414px) {
+  modal-header h5 {
+    padding-left: 0 !important;
+  }
+  .thankhead {
+    padding-left: 0 !important;
+  }
+}
+
+input, select, textarea {
+  font-size: 1.27rem !important;
+  letter-spacing: 0.05rem !important;
+}

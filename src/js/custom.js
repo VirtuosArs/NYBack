@@ -349,22 +349,21 @@ $(document).ready(function() {
       //values , values2 , values3
       //Save the data to google form here 
 
-      count = 1;
-      while(count <= totalpartcipant){
-        console.log(count);
-        console.log("Partcipant ==> "+ count);
-        // finalclose .click(function(e) {
-        $("#finalclose").click(function(e) {
-          count++;
-          console.log(count);
-          console.log("Value of count ==> "+ count);
-          e.preventDefault();           
-          $("#exampleModalform2").modal("show");
-          document.getElementById("form2final").reset();
-          $("body").css("overflow", "hidden");
-          $("#exampleModalform2").css("overflow", "auto");
-        });
-      }
+      // count = 1;
+      // while(count <= totalpartcipant){
+      //   console.log(count);
+      //   console.log("Partcipant ==> "+ count);
+      //   $("#finalclose").click(function(e) {
+      //     count++;
+      //     console.log(count);
+      //     console.log("Value of count ==> "+ count);
+      //     e.preventDefault();           
+      //     $("#exampleModalform2").modal("show");
+      //     document.getElementById("form2final").reset();
+      //     $("body").css("overflow", "hidden");
+      //     $("#exampleModalform2").css("overflow", "auto");
+      //   });
+      // }
 
       // $("#submitdata").append("Name: " + pname + "Values" + values);
     } else {
