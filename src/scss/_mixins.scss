@@ -23,16 +23,16 @@
   }
 
   @mixin lineslant() {
-    width: 72px;
-    height: 59px;
+    width: 120px;
+    height: 91px;
     border-bottom: 1px solid $secondary;
     -webkit-transform:
         translateY(20px)
         translateX(5px)
         rotate(-63deg);
     position: absolute;
-    top: 24px;
-    left: 74px;
+    top: 27px;
+    left: 50px;
   } 
 
   @mixin lineslantn() {

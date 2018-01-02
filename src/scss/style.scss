@@ -3,6 +3,12 @@
 @import "global.scss";
 @import "bootstrap-overrides.scss";
 @import "testimonials.scss";
+
+@font-face {
+    font-family: bebasneue;
+    src: url('../fonts/BebasNeue.otf');
+  }
+
 body {
     color: $primary;
     background: $white;
@@ -99,6 +105,8 @@ body {
             max-height: 100px;
         }
     }
+    font-family: din-regular !important;
+    letter-spacing: 0.1rem;
 } // Styling for the masthead
 header.masthead {
     padding-top: 10rem;
@@ -136,9 +144,26 @@ header.masthead {
             font-size: 4rem;
         }
     }
+    .isubh {
+        letter-spacing: 0.05rem !important;
+        font-size: 1.27rem !important;
+        margin-top: 1rem;
+    }
+    .mhr{
+        max-width: 50%;
+        border-width: 1.25px;
+    }
 }
 
 .eventslist {
+    p {
+        font-size: 1.27rem;
+        letter-spacing: 0.05rem;
+    }
+    .bic {
+        text-transform: uppercase;
+        color: $primary !important;
+    }
     .oline {
         border-color: $primary;
     }
@@ -149,8 +174,9 @@ header.masthead {
     }
     hr {
         max-width: 100% !important;
-        border-width: 2px;
-        border-color: $gray-500;
+        border-width: 1.35px;
+        // border-color: $gray-500;
+        border-color: $primary;
     }
     .eventbutton {
         text-transform: none;
@@ -159,13 +185,16 @@ header.masthead {
         margin-bottom: 1rem;
         text-decoration: none;
         color: #fff !important;
+        font-size: 1.27rem;
+        font-family: bebasneue;
+        text-transform: uppercase;
     }
     .eventhead {
         margin-top: 1rem;
     }
     @media (min-width: 768px) {
         h1 {
-            letter-spacing: 0.4rem;
+            letter-spacing: 0.05rem;
         } // .eventbutton {
         //   width: auto;
         //   margin-bottom: 0;
@@ -175,7 +204,7 @@ header.masthead {
         }
         .img-fluid,
         .ch {
-            height: 360px;
+            height: 464px;
         }
         .ch1 {
             height: 527px;
@@ -196,23 +225,25 @@ header.masthead {
     }
     .line3 {
         @include lineslant;
-        left: 20rem;
+        left: 23rem;
     }
     .line2n {
         @include lineslantn;
     }
     .line3n {
         @include lineslantn;
-        left: 30rem;
+        left: 33rem;
     }
     @media (max-width: 768px) {
         .line2 {
             @include lineslant;
             left: 47px;
+            display: none !important;
         }
         .line3 {
             @include lineslant;
-            left: 12rem;
+            left: 15rem;
+            display: none !important;
         }
         .line2n {
             @include lineslantn;
@@ -220,67 +251,75 @@ header.masthead {
         }
         .line3n {
             @include lineslantn;
-            left: 20rem;
+            left: 23rem;
+        }
+    }
+    @media (min-width: 1024px) and (min-height: 768px) {
+        .line3 {
+            @include lineslant;
+            left: 19rem;
+        }
+        .line3n {
+            @include lineslantn;
+            left: 19rem;
         }
     }
     @media (min-width: 1024px) {
         .eventbutton {
             width: auto;
             margin-bottom: 0;
+            padding-top: 6px;
+            // text-transform: lowercase;
         }
         .line2 {
             @include lineslant;
+            left: 36px;
         }
         .line3 {
             @include lineslant;
-            left: 18rem;
+            left: 21rem;
         }
         .line2n {
             @include lineslantn;
         }
         .line3n {
             @include lineslantn;
-            left: 20rem;
+            left: 23rem;
         }
     }
     @media (min-width: 1024px) {
         .line3 {
             @include lineslant;
-            left: 20rem;
+            left: 23rem;
         }
         .line3n {
             @include lineslantn;
-            left: 30rem;
+            left: 33rem;
         }
     }
+
+    // @media (min-width: 1024px) and (min-height: 768px) {
+    //     .line3 {
+    //         @include lineslant;
+    //         left: 18rem;
+    //     }
+    // }
+
     @media (min-width: 1024px) and (min-height: 1366px) {
         .line3 {
             @include lineslant;
             left: 18rem;
         }
-        .line3n {
-            @include lineslantn;
-            left: 20rem;
-        }
     }
-    @media (min-width: 1024px) and (min-height: 768px) {
-        .line3 {
-            @include lineslant;
-            left: 18rem;
-        }
-        .line3n {
-            @include lineslantn;
-            left: 20rem;
-        }
-    }
+    
     @media (min-width: 1366px) and (min-height: 1024px) {
         .line3 {
             @include lineslant;
-            left: 20rem;
+            left: 23rem;
         }
         .line3n {
             @include lineslantn;
-            left: 30rem;
+            left: 33rem;
         }
     }
     @media (max-width: 480px) {
@@ -293,8 +332,11 @@ header.masthead {
         border: none;
     }
     .thdata {
-        color: #000;
+        color: $gray-600;;
         text-align: left;
+        font-size: 1.27rem;
+        letter-spacing: 0.05rem;
+        font-weight: 500;
     }
 }
 
@@ -424,13 +466,15 @@ footer {
     }
     .footabout {
         font-size: 0.9rem;
+        letter-spacing: 0.05rem;
     }
     .social {
         color: $gray-500;
     }
     .footterms {
         cursor: pointer;
-        color: $gray-600 !important;
+        color: $primary !important;
+        letter-spacing: 0.05rem !important;
     } // @media(min-width: 768px) {
     .foot2 {
         border-left: 2px solid $gray-500;
@@ -442,6 +486,17 @@ footer {
     .image-social {
         width: 32px;
         height: 32px;
+    }
+    .fhead {
+        font-family: bebasneue;
+        color: $secondary !important; 
+        font-size: 1.27rem;
+        letter-spacing: 0.05rem;
+    }
+    .footcopy {
+        font-size: 1rem;
+        letter-spacing: 0.05rem;
+        color: $secondary;
     }
 }
 
@@ -488,6 +543,8 @@ hr.star-dark:after {
 .tdata {
     color: $gray-600;
     text-align: left;
+    font-size: 1.27rem;
+    letter-spacing: 0.05rem;
 }
 
 .button {
@@ -514,6 +571,28 @@ hr.star-dark:after {
     font-size: 1rem;
 }
 
+.buttonv2 {
+    position: relative;
+    margin: 0;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 2.8px;
+    padding-bottom: 2.8px;
+    background: $primary;
+    color: white;
+    font-size: 1rem;
+    left: 2.3rem;
+}
+
+@media (max-width: 768px) {
+    .buttonv2 {
+        left: 0rem;
+    }
+    .req {
+        font-size: 0.8rem !important;
+    }
+}
+
 .buttonv:hover,
 .button:hover {
     color: $white;
@@ -538,8 +617,8 @@ hr.star-dark:after {
 /* ----------- */
 
 .next::after {
-    right: -28px;
-    border-width: 14px;
+    right: -36px;
+    border-width: 18px;
     border-color: transparent transparent transparent $primary;
 }
 
@@ -548,6 +627,11 @@ hr.star-dark:after {
 }
 
 #testimonials {
+    
+    p {
+        font-size: 1.27rem;
+        letter-spacing: 0.05rem;
+    }
     .card {
         margin: 0 auto;
     }
@@ -578,6 +662,38 @@ hr.star-dark:after {
         color: #3d3d3d !important;
         opacity: 1 !important;
     }
+    .section-heading {
+        color: $primary !important;
+        font-family: bebasneue !important;
+        letter-spacing: 0.05rem;
+    }
+    .tname {
+        color: $secondary;
+        font-family: bebasneue !important;
+        font-size: 1.27rem;
+        letter-spacing: 0.05rem;
+        text-align: left;
+    }
+    .tp {
+        text-align: left;
+    }
+    @media (min-width: 500px) {
+        .innerbox {
+            padding: 6rem !important;
+        }
+    }
+    
+    .hrt {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    hr {
+        max-width: 100px !important;
+        border-width: 1.25px !important;
+    }
+    .fullwidthhr {
+        max-width: 90% !important;
+    }   
 }
 
 .bottom-left {
@@ -591,8 +707,10 @@ hr.star-dark:after {
 
 .eh {
     font-size: 1.8rem;
+    color: $tbblack !important;
     font-weight: 396;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
 }
 
 .ch1n {
@@ -654,4 +772,20 @@ select {
 
 .thankyoumessage {
     text-align: center;
+}
+
+.jh {
+    font-family: bebasneue !important;
+    color: #808083 !important;
+    font-size: 1.8rem;
+    letter-spacing: 0.01rem;
+    line-height: 2.3rem;
+}
+
+.jsh {
+    color: #808083 !important;
+}
+
+.sectionabove {
+    margin-bottom: -4rem;
 }
