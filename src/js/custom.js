@@ -1,7 +1,10 @@
+var countparticipant = 1;
 var count = 1;
 var values2 = {};
+var values22 = {};
 var values3 = {};
 var values4 = {};
+var totalpartcipant = 1;
 
 (function ($) {
   "use strict"; // Start of use strict
@@ -156,7 +159,7 @@ var values4 = {};
 
 // When the DOM is ready, run this function
 $(document).ready(function () {
-  var totalpartcipant = 1;
+  
 
   $("#numberpart").change(function () {
     var price = Number($(this).val());
@@ -265,16 +268,121 @@ $(document).ready(function () {
       console.log("Here..");
       console.log(values2);
       console.log("Filled participant data...");
+
+      while( countparticipant <= totalpartcipant )
+      {
+        console.log(values2);
+        console.log("Participant.")
+        console.log(countparticipant);
+        console.log("Total Participant:")
+        console.log(totalpartcipant);
+        
+        //Store the values in global array 
+        // $("#exampleModalform2").modal("hide");
+        // $("#exampleModalform2").modal("show");
+        document.getElementById("form2final").reset();
+        console.log("Form resetted......")
+        // $("body").css("overflow", "hidden");
+        $("#exampleModalform2").css("overflow", "auto");
+        
+
+
+        var fname2 = $("#fname").val();
+        var lname2 = $("#lname").val();
+        var email2 = $("#email").val();
+        // var validemail2 = isValidEmailAddress(email2);
+        // console.log("valdEmail ==> " + validemail2);
+        var bloodgroup2 = $('#bloodgroup').find(":selected").val();
+        var meal2 = $('#meal').find(":selected").val();
+        function isValidEmailAddress(emailAddress) {
+          var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+          return pattern.test(emailAddress);
+        };
+
+        if (!(fname2 == "" || lname2 == "" || bloodgroup2 == "" || meal2 == "")) {
+          // $("#submitdata").empty();
+          e.preventDefault();
+          values22 = {};
+          $.each($("#form2final").serializeArray(), function (i, field) {
+            values22[field.name] = field.value;
+            // valueform1[field.name] = field.value;
+          });
+          console.log("Here..");
+          console.log(values22);
+          console.log("Filled participant 2 data...");
+        } else {
+          // alert("Please Fill All Fields.");
+          console.log("Else..");
+          var form = document.getElementById("form2final");
+    
+          form.addEventListener(
+            "submit",
+            function (event) {
+              var email2 = $("#email").val();
+              var validemail2 = isValidEmailAddress(email2);
+              console.log("Email submit ==> " + email2);
+              if (form.checkValidity() === false || validemail2 === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                if (validemail2 === false) {
+                  console.log(validemail2);
+                  console.log("Email Invalid..........");
+                  $("#email").next().empty();
+                  $("#email").next().text("Email is invalid.");
+                  $(".emailinvalid").css('display', 'block');
+                }
+                else {
+                  console.log(validemail);
+                  console.log("Email Valid...");
+                  $(".emailinvalid").css('display', 'none');
+                }
+              }
+              form.classList.add("was-validated");
+              // e.preventDefault();
+              var values22 = {};
+              // var pname = $("#numberpart").val();
+              $.each($("#form2final").serializeArray(), function (i, field) {
+                values22[field.name] = field.value;
+              });
+              // console.log("Here..");
+              // e.preventDefault();
+              // console.log(pname);
+              // console.log(values);
+            },
+            false
+          );
+        }
+        countparticipant++;
+
+
+      }
+
+      console.log("gdcgv");
+      console.log(countparticipant);
+      console.log("dsfbj");
+      console.log(totalpartcipant)
+      if( countparticipant-1 <= totalpartcipant) {
+        document.getElementById("form2final").reset();
+        console.log("HEfvsdhcd.....")
+        $("#exampleModalform2").css("overflow", "auto");
+        countparticipant++;
+      }
+      else{
+        console.log("gdcgvndmbb");
+        console.log(countparticipant);
+        console.log("dsfbjdfg");
+        console.log(totalpartcipant)
       $("#exampleModalform2").modal("hide");
       $("#exampleModalform3").modal("show");
       document.getElementById("form3final").reset();
       $("body").css("overflow", "hidden");
       $("#exampleModalform3").css("overflow", "auto");
+      }
 
       // $("#submitdata").append("Name: " + pname + "Values" + values);
     } else {
       // alert("Please Fill All Fields.");
-      console.log("Else..");
+      console.log("Else...........");
       var form = document.getElementById("form2final");
 
       form.addEventListener(
@@ -315,6 +423,73 @@ $(document).ready(function () {
       );
     }
   });
+
+
+  // $("#firstdetailsubmit").click(function (e) {
+  //   console.log("In second form");
+  //   var fname = $("#fname").val();
+  //   var lname = $("#lname").val();
+  //   var email = $("#email").val();
+  //   var validemail = isValidEmailAddress(email);
+  //   console.log("valdEmail ==> " + validemail);
+  //   var bloodgroup = $('#bloodgroup').find(":selected").val();
+  //   var meal = $('#meal').find(":selected").val();
+  //   function isValidEmailAddress(emailAddress) {
+  //     var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+  //     return pattern.test(emailAddress);
+  //   };
+
+  //   if (!(fname == "" || lname == "" || validemail == false || bloodgroup == "" || meal == "")) {
+  //     e.preventDefault();
+  //     values2 = {};
+  //     $.each($("#form2final").serializeArray(), function (i, field) {
+  //       values2[field.name] = field.value;
+  //     });
+  //     console.log("Here..");
+  //     console.log(values2);
+  //     console.log("Filled participant data...");
+  //     $("#exampleModalform2").modal("hide");
+  //     $("#exampleModalform3").modal("show");
+  //     document.getElementById("form3final").reset();
+  //     $("body").css("overflow", "hidden");
+  //     $("#exampleModalform3").css("overflow", "auto");
+
+  //   } else {
+  //     console.log("Else..");
+  //     var form = document.getElementById("form2final");
+
+  //     form.addEventListener(
+  //       "submit",
+  //       function (event) {
+  //         var email = $("#email").val();
+  //         var validemail = isValidEmailAddress(email);
+  //         console.log("Email submit ==> " + email);
+  //         if (form.checkValidity() === false || validemail === false) {
+  //           event.preventDefault();
+  //           event.stopPropagation();
+  //           if (validemail === false) {
+  //             console.log(validemail);
+  //             console.log("Email Invalid..........");
+  //             $("#email").next().empty();
+  //             $("#email").next().text("Email is invalid.");
+  //             $(".emailinvalid").css('display', 'block');
+  //           }
+  //           else {
+  //             console.log(validemail);
+  //             console.log("Email Valid...");
+  //             $(".emailinvalid").css('display', 'none');
+  //           }
+  //         }
+  //         form.classList.add("was-validated");
+  //         var values2 = {};
+  //         $.each($("#form2final").serializeArray(), function (i, field) {
+  //           values2[field.name] = field.value;
+  //         });
+  //       },
+  //       false
+  //     );
+  //   }
+  // });
 
 
 

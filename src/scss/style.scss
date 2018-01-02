@@ -802,12 +802,14 @@ select {
 .modal-header h5 {
     font-size: 1.8rem ;
     letter-spacing: 0.05rem;
-    padding-left: 41%;
+    // padding-left: 41%;
+    margin: 0 18rem;
     font-family: bebasneue;
 }
 
 .thankhead {
-    padding-left: 34% !important;
+    // padding-left: 34% !important;
+    margin: 0 14rem;
 }
 
 @media (max-width: 414px) {

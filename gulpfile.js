@@ -48,7 +48,7 @@ gulp.task('minify-custom', function () {
         'src/js/custom.js'
     ])
         .pipe(rename({ suffix: '.min' }))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest('dist/js'))
         .pipe(gulp.dest('src/js'));
 });
