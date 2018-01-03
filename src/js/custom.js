@@ -14,6 +14,7 @@ var dataComplete = {
 };
 var eventNameT = "";
 var tp1 = "";
+var clientData ;
 
 
 (function ($) {
@@ -697,30 +698,7 @@ $("#finalclose").click(function(e) {
     }
   });
 
-  $('#onlinepay').click(function (e) {
-
-    //Integrate Pay U code here
-    bolt.launch({
-      key: 'rjQUPktU',
-      txnid: '123456789',
-      hash: 'defdfaadgerhetiwerer',
-      amount: '1',
-      firstname: 'Jaysinh',
-      email: 'dummyemail@dummy.com',
-      phone: '6111111111',
-      productinfo: 'Bag',
-      surl : 'https://sucess-url.in',
-      furl: 'https://fail-url.in'
-      
-      },{ responseHandler: function(response){
-      // your payment response Code goes here
-      },
-      catchException: function(response){
-      // the code you use to handle the integration errors goes here
-      }
-      });
-
-  });
+  
 
   $("#cheque").click(function (e) {
     console.log("In Fourth Cheque form");
@@ -746,7 +724,9 @@ $("#finalclose").click(function(e) {
       console.log("Added Emergency Details to global object");
       console.log(dataComplete);
       var myJSON = JSON.stringify(dataComplete);
+      clientData = JSON.stringify(dataComplete);
       console.log(myJSON);
+      console.log(clientData);
       $("#exampleModalform4").modal("hide");
       $("#exampleModalthank").modal("show");
       var total = valuesParticipant.length;
