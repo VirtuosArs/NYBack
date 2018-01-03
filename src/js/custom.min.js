@@ -12,6 +12,8 @@ var dataComplete = {
   "ParentDetails" : {} ,
   "EmergencyDetails" : {}
 };
+var eventNameT = "";
+var tp1 = "";
 
 
 (function ($) {
@@ -169,19 +171,6 @@ var dataComplete = {
 $(document).ready(function () {
   
 
-  $("#numberpart").change(function () {
-    var price = Number($(this).val());
-    // console.log(price)
-    var total = price * 13500;
-    $("#totalprice").attr("placeholder", total);
-    $("#totalprice").attr("value", total);
-  });
-
-  function updatePrice(val) {
-    $("#numberpart").val(val);
-    $("#numberpart").trigger("change");
-  }
-
   $(".booknowclass1").click(function(e) {
     console.log("Clicked booknow for indonesia...")
     // var eventName = $(".booknowclass").val();
@@ -190,9 +179,10 @@ $(document).ready(function () {
     $("#batchvalue1").val("May 30 - June 4, 2018");
     $("#batchvalue2").val("June 14 - June 19, 2018");
 
-    var tp1 = "13500";
+    tp1 = "13500";
+    eventNameT = "5N/6D / CAMP OCEAN EXPLORER / BALI, INDONESIA";
     $("#price").attr("placeholder", tp1);
-    $("#price").attr("value", tp1);
+    $("#price").val(tp1);
 
   });
 
@@ -203,9 +193,11 @@ $(document).ready(function () {
     $("#batchvalue1").val("May 15 - May 20, 2018");
     $("#batchvalue2").val("June 14 - June 19, 2018");
 
-    var tp1 = "25000";
+    tp1 = "25000";
+    eventNameT = "5N/6D / CAMP VOYAGER / CHINA";
     $("#price").attr("placeholder", tp1);
-    $("#price").attr("value", tp1);
+    $("#price").val(tp1);
+    console.log($("#price").val());
   });
 
   $(".booknowclass3").click(function(e) {
@@ -215,9 +207,10 @@ $(document).ready(function () {
     $("#batchvalue1").val("May 22 - May 28, 2018");
     $("#batchvalue2").val("June 21 - June 26, 2018");
 
-    var tp1 = "25000";
+    tp1 = "25000";
+    eventNameT = "5N/6D / CAMP SUMMITEER / UTTARAKHAND";
     $("#price").attr("placeholder", tp1);
-    $("#price").attr("value", tp1);
+    $("#price").val(tp1);
   });
 
   $(".booknowclass4").click(function(e) {
@@ -227,9 +220,10 @@ $(document).ready(function () {
     $("#batchvalue1").val("May 8 - May 13, 2018");
     $("#batchvalue2").val("-");
 
-    var tp1 = "25000";
+    tp1 = "25000";
+    eventNameT = "5N/6D / CAMP PATHFINDER / KALI RIVER, KARNATAKA";
     $("#price").attr("placeholder", tp1);
-    $("#price").attr("value", tp1);
+    $("#price").val(tp1);
   });
 
   $(".booknowclass5").click(function(e) {
@@ -239,9 +233,10 @@ $(document).ready(function () {
     $("#batchvalue1").val("May 1 - May 3, 2018");
     $("#batchvalue2").val("May 4 - May 6, 2018");
 
-    var tp1 = "25000";
+    tp1 = "25000";
+    eventNameT = "2N/3D / CAMP FOOTLOOSE / CAMPSITE NEAR MUMBAI";
     $("#price").attr("placeholder", tp1);
-    $("#price").attr("value", tp1);
+    $("#price").val(tp1);
   });
 
   $(".booknowclass6").click(function(e) {
@@ -251,9 +246,10 @@ $(document).ready(function () {
     $("#batchvalue1").val("May 21 - May 23, 2018");
     $("#batchvalue2").val("May 24 - May 26, 2018");
 
-    var tp1 = "25000";
+    tp1 = "25000";
+    eventNameT = "2N/3D / CAMP FOOTLOOSE / CAMPSITE NEAR BANGALORE";
     $("#price").attr("placeholder", tp1);
-    $("#price").attr("value", tp1);
+    $("#price").val(tp1);
   });
 
   $(".booknowclass7").click(function(e) {
@@ -263,9 +259,10 @@ $(document).ready(function () {
     $("#batchvalue1").val("May 7 - May 9, 2018");
     $("#batchvalue2").val("May 10 - May 12, 2018");
 
-    var tp1 = "25000";
+    tp1 = "25000";
+    eventNameT = "2N/3D / CAMP FOOTLOOSE / CAMPSITE NEAR HYDERABAD";
     $("#price").attr("placeholder", tp1);
-    $("#price").attr("value", tp1);
+    $("#price").val(tp1);
   });
 
 
@@ -276,11 +273,25 @@ $(document).ready(function () {
     $("#batchvalue1").val("May 17 - May 19, 2018");
     $("#batchvalue2").val("May 20 - May 22, 2018");
 
-    var tp1 = "25000";
+    tp1 = "25000";
+    eventNameT = "2N/3D / CAMP FOOTLOOSE / CAMPSITE NEAR KOLKATA";
     $("#price").attr("placeholder", tp1);
-    $("#price").attr("value", tp1);
+    $("#price").val(tp1);
+    console.log($("#price").val(tp1));
   });
   
+  $("#numberpart").change(function () {
+    var price = Number($(this).val());
+    // console.log(price)
+    var total = price * tp1;
+    $("#totalprice").attr("placeholder", total);
+    $("#totalprice").attr("value", total);
+  });
+
+  function updatePrice(val) {
+    $("#numberpart").val(val);
+    $("#numberpart").trigger("change");
+  }
 
   // updatePrice(1);
   $("#onlineform1").click(function (e) {
@@ -299,8 +310,7 @@ $(document).ready(function () {
       var pname = $("#numberpart").val();
       var values = {};
       var price = $("#price").val();
-      var tp = price * pname;
-      console.log("Price ==> " + price + "And Total==> " + tp);
+      var tp = tp1 * pname;
       // document.getElementById("totalprice").placeholder = tp;
       $("#totalprice").attr("placeholder", tp);
       $("#totalprice").attr("value", tp);
@@ -721,7 +731,7 @@ $("#finalclose").click(function(e) {
     var checked = document.getElementById("defaultCheck1").checked;
     console.log(checked);
 
-    if (!(e1name == "" || erelation == "" || enumber == "" || checked == false)) {
+    if (!(e1name == "" || erelation == "" || enumber == "")) {
       // $("#submitdata").empty();
       e.preventDefault();
       values4 = {};
@@ -739,7 +749,17 @@ $("#finalclose").click(function(e) {
       console.log(myJSON);
       $("#exampleModalform4").modal("hide");
       $("#exampleModalthank").modal("show");
-      $('#messagedetails').text("Payment for "+ values2.FirstName + " , Event Name");
+      var total = valuesParticipant.length;
+      var namestring = "";
+      while(total--) {
+        if(valuesParticipant[total].FirstName.length > 0)
+        {
+          namestring = namestring + valuesParticipant[total].FirstName + ", ";
+        }
+        else
+          console.log("Looping complete");
+      }
+      $('#messagedetails').text(namestring + " "+ eventNameT + "'");
       $("body").css("overflow", "hidden");
       $("#exampleModalthank").css("overflow", "auto");
 
@@ -748,7 +768,7 @@ $("#finalclose").click(function(e) {
       // alert("Please Fill All Fields.");
       console.log("Else..");
       var form = document.getElementById("form4final");
-
+      
       form.addEventListener(
         "submit",
         function (event) {
@@ -769,9 +789,6 @@ $("#finalclose").click(function(e) {
       );
     }
   });
-
-
-
 
   //Set the carousel options
   $("#quote-carousel").carousel({
