@@ -174,6 +174,105 @@ $(document).ready(function () {
     $("#numberpart").trigger("change");
   }
 
+  $(".booknowclass1").click(function(e) {
+    console.log("Clicked booknow for indonesia...")
+    // var eventName = $(".booknowclass").val();
+    $('#batchvalue1').text("May 30 - June 4, 2018");
+    $('#batchvalue2').text("June 14 - June 19, 2018");
+    $("#batchvalue1").val("May 30 - June 4, 2018");
+    $("#batchvalue2").val("June 14 - June 19, 2018");
+
+    var tp1 = "13500";
+    $("#price").attr("placeholder", tp1);
+    $("#price").attr("value", tp1);
+
+  });
+
+  $(".booknowclass2").click(function(e) {
+    console.log("Clicked booknow for china...");
+    $('#batchvalue1').text("May 15 - May 20, 2018");
+    $('#batchvalue2').text("June 14 - June 19, 2018");
+    $("#batchvalue1").val("May 15 - May 20, 2018");
+    $("#batchvalue2").val("June 14 - June 19, 2018");
+
+    var tp1 = "25000";
+    $("#price").attr("placeholder", tp1);
+    $("#price").attr("value", tp1);
+  });
+
+  $(".booknowclass3").click(function(e) {
+    console.log("Clicked booknow for Uttarakhand...");
+    $('#batchvalue1').text("May 22 - May 28, 2018");
+    $('#batchvalue2').text("June 21 - June 26, 2018");
+    $("#batchvalue1").val("May 22 - May 28, 2018");
+    $("#batchvalue2").val("June 21 - June 26, 2018");
+
+    var tp1 = "25000";
+    $("#price").attr("placeholder", tp1);
+    $("#price").attr("value", tp1);
+  });
+
+  $(".booknowclass4").click(function(e) {
+    console.log("Clicked booknow for Karnataka...");
+    $('#batchvalue1').text("May 8 - May 13, 2018");
+    $('#batchvalue2').text("-");
+    $("#batchvalue1").val("May 8 - May 13, 2018");
+    $("#batchvalue2").val("-");
+
+    var tp1 = "25000";
+    $("#price").attr("placeholder", tp1);
+    $("#price").attr("value", tp1);
+  });
+
+  $(".booknowclass5").click(function(e) {
+    console.log("Clicked booknow for Mumbai...");
+    $('#batchvalue1').text("May 1 - May 3, 2018");
+    $('#batchvalue2').text("May 4 - May 6, 2018");
+    $("#batchvalue1").val("May 1 - May 3, 2018");
+    $("#batchvalue2").val("May 4 - May 6, 2018");
+
+    var tp1 = "25000";
+    $("#price").attr("placeholder", tp1);
+    $("#price").attr("value", tp1);
+  });
+
+  $(".booknowclass6").click(function(e) {
+    console.log("Clicked booknow for Bangalore...");
+    $('#batchvalue1').text("May 21 - May 23, 2018");
+    $('#batchvalue2').text("May 24 - May 26, 2018");
+    $("#batchvalue1").val("May 21 - May 23, 2018");
+    $("#batchvalue2").val("May 24 - May 26, 2018");
+
+    var tp1 = "25000";
+    $("#price").attr("placeholder", tp1);
+    $("#price").attr("value", tp1);
+  });
+
+  $(".booknowclass7").click(function(e) {
+    console.log("Clicked booknow for Hyderabad...");
+    $('#batchvalue1').text("May 7 - May 9, 2018");
+    $('#batchvalue2').text("May 10 - May 12, 2018");
+    $("#batchvalue1").val("May 7 - May 9, 2018");
+    $("#batchvalue2").val("May 10 - May 12, 2018");
+
+    var tp1 = "25000";
+    $("#price").attr("placeholder", tp1);
+    $("#price").attr("value", tp1);
+  });
+
+
+  $(".booknowclass8").click(function(e) {
+    console.log("Clicked booknow for Kolkata...");
+    $('#batchvalue1').text("May 17 - May 19, 2018");
+    $('#batchvalue2').text("May 20 - May 22, 2018");
+    $("#batchvalue1").val("May 17 - May 19, 2018");
+    $("#batchvalue2").val("May 20 - May 22, 2018");
+
+    var tp1 = "25000";
+    $("#price").attr("placeholder", tp1);
+    $("#price").attr("value", tp1);
+  });
+  
 
   // updatePrice(1);
   $("#onlineform1").click(function (e) {
