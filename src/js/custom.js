@@ -5,6 +5,14 @@ var values22 = {};
 var values3 = {};
 var values4 = {};
 var totalpartcipant = 1;
+var valuesParticipant = [];
+var dataComplete = {
+  "bookingform" : {},
+  "participantsDetails" : [],
+  "ParentDetails" : {} ,
+  "EmergencyDetails" : {}
+};
+
 
 (function ($) {
   "use strict"; // Start of use strict
@@ -303,6 +311,9 @@ $(document).ready(function () {
       console.log("Here..");
       console.log(values);
       console.log("Filled booking data...");
+      // dataComplete[bookingform] = values;
+      dataComplete.bookingform = values;
+      console.log("Added to global object");
       $("#exampleModalform1").modal("hide");
       $("#exampleModalform2").modal("show");
       $("body").css("overflow", "hidden");
@@ -374,110 +385,97 @@ $("#finalclose").click(function(e) {
       });
       console.log("Here..");
       console.log(values2);
+      valuesParticipant.push(values2);
+      console.log(valuesParticipant);
       console.log("Filled participant data...");
 
-      while( countparticipant <= totalpartcipant )
-      {
-        console.log(values2);
-        console.log("Participant.")
-        console.log(countparticipant);
-        console.log("Total Participant:")
-        console.log(totalpartcipant);
+      // while( countparticipant <= totalpartcipant )
+      // {
+      //   console.log(values2);
+      //   console.log("Participant.")
+      //   console.log(countparticipant);
+      //   console.log("Total Participant:")
+      //   console.log(totalpartcipant);
         
-        //Store the values in global array 
-        // $("#exampleModalform2").modal("hide");
-        // $("#exampleModalform2").modal("show");
-        document.getElementById("form2final").reset();
-        console.log("Form resetted......")
-        // $("body").css("overflow", "hidden");
-        $("#exampleModalform2").css("overflow", "auto");
+      //   document.getElementById("form2final").reset();
+      //   console.log("Form resetted......")
+      //   $("#exampleModalform2").css("overflow", "auto");
         
 
 
-        var fname2 = $("#fname").val();
-        var lname2 = $("#lname").val();
-        var email2 = $("#email").val();
-        // var validemail2 = isValidEmailAddress(email2);
-        // console.log("valdEmail ==> " + validemail2);
-        var bloodgroup2 = $('#bloodgroup').find(":selected").val();
-        var meal2 = $('#meal').find(":selected").val();
-        function isValidEmailAddress(emailAddress) {
-          var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
-          return pattern.test(emailAddress);
-        };
+      //   var fname2 = $("#fname").val();
+      //   var lname2 = $("#lname").val();
+      //   var email2 = $("#email").val();
+      //   var bloodgroup2 = $('#bloodgroup').find(":selected").val();
+      //   var meal2 = $('#meal').find(":selected").val();
+      //   function isValidEmailAddress(emailAddress) {
+      //     var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+      //     return pattern.test(emailAddress);
+      //   };
 
-        if (!(fname2 == "" || lname2 == "" || bloodgroup2 == "" || meal2 == "")) {
-          // $("#submitdata").empty();
-          e.preventDefault();
-          values22 = {};
-          $.each($("#form2final").serializeArray(), function (i, field) {
-            values22[field.name] = field.value;
-            // valueform1[field.name] = field.value;
-          });
-          console.log("Here..");
-          console.log(values22);
-          console.log("Filled participant 2 data...");
-        } else {
-          // alert("Please Fill All Fields.");
-          console.log("Else..");
-          var form = document.getElementById("form2final");
+      //   if (!(fname2 == "" || lname2 == "" || bloodgroup2 == "" || meal2 == "")) {
+      //     e.preventDefault();
+      //     values22 = {};
+      //     $.each($("#form2final").serializeArray(), function (i, field) {
+      //       values22[field.name] = field.value;
+      //     });
+      //     console.log("Here..");
+      //     console.log(values22);
+      //     console.log("Filled participant 2 data...");
+      //   } else {
+      //     console.log("Else..");
+      //     var form = document.getElementById("form2final");
     
-          form.addEventListener(
-            "submit",
-            function (event) {
-              var email2 = $("#email").val();
-              var validemail2 = isValidEmailAddress(email2);
-              console.log("Email submit ==> " + email2);
-              if (form.checkValidity() === false || validemail2 === false) {
-                event.preventDefault();
-                event.stopPropagation();
-                if (validemail2 === false) {
-                  console.log(validemail2);
-                  console.log("Email Invalid..........");
-                  $("#email").next().empty();
-                  $("#email").next().text("Email is invalid.");
-                  $(".emailinvalid").css('display', 'block');
-                }
-                else {
-                  console.log(validemail);
-                  console.log("Email Valid...");
-                  $(".emailinvalid").css('display', 'none');
-                }
-              }
-              form.classList.add("was-validated");
-              // e.preventDefault();
-              var values22 = {};
-              // var pname = $("#numberpart").val();
-              $.each($("#form2final").serializeArray(), function (i, field) {
-                values22[field.name] = field.value;
-              });
-              // console.log("Here..");
-              // e.preventDefault();
-              // console.log(pname);
-              // console.log(values);
-            },
-            false
-          );
-        }
-        countparticipant++;
+      //     form.addEventListener(
+      //       "submit",
+      //       function (event) {
+      //         var email2 = $("#email").val();
+      //         var validemail2 = isValidEmailAddress(email2);
+      //         console.log("Email submit ==> " + email2);
+      //         if (form.checkValidity() === false || validemail2 === false) {
+      //           event.preventDefault();
+      //           event.stopPropagation();
+      //           if (validemail2 === false) {
+      //             console.log(validemail2);
+      //             console.log("Email Invalid..........");
+      //             $("#email").next().empty();
+      //             $("#email").next().text("Email is invalid.");
+      //             $(".emailinvalid").css('display', 'block');
+      //           }
+      //           else {
+      //             console.log(validemail);
+      //             console.log("Email Valid...");
+      //             $(".emailinvalid").css('display', 'none');
+      //           }
+      //         }
+      //         form.classList.add("was-validated");
+      //         var values22 = {};
+      //         $.each($("#form2final").serializeArray(), function (i, field) {
+      //           values22[field.name] = field.value;
+      //         });
+      //       },
+      //       false
+      //     );
+      //   }
+      //   countparticipant++;
 
 
-      }
+      // }
 
       console.log("gdcgv");
       console.log(countparticipant);
       console.log("dsfbj");
       console.log(totalpartcipant)
-      if( ((countparticipant-1) <= totalpartcipant) && (countparticipant > 2) )  {
+      if( ((countparticipant) < totalpartcipant) )  {
         document.getElementById("form2final").reset();
-        $('#participantvalue').text("Participant # "+ (countparticipant - 1));
+        $('#participantvalue').text("Participant # "+ (countparticipant + 1));
         console.log("HEfvsdhcd.....")
         $("#exampleModalform2").css("overflow", "auto");
         countparticipant++;
       }
       else{
         console.log("gdcgvndmbb");
-        console.log(countparticipant);participantvalue
+        console.log(countparticipant);
         console.log("dsfbjdfg");
         console.log(totalpartcipant)
       $("#exampleModalform2").modal("hide");
@@ -602,6 +600,8 @@ $("#finalclose").click(function(e) {
 
 
   $("#detailsubmit").click(function (e) {
+    dataComplete.participantsDetails = valuesParticipant;
+    console.log("Added Participants to global object");
     console.log("In third form");
     console.log(count);
     var relation = $('#relation').find(":selected").val();
@@ -628,6 +628,8 @@ $("#finalclose").click(function(e) {
       console.log("Here..");
       console.log(values3);
       console.log("Filled participant parent data...");
+      dataComplete.ParentDetails = values3;
+      console.log("Added Paent Details to global object");
       $("#exampleModalform3").modal("hide");
       $("#exampleModalform4").modal("show");
       $("body").css("overflow", "hidden");
@@ -716,8 +718,9 @@ $("#finalclose").click(function(e) {
     var erelation = $('#erelation').find(":selected").val();
     var efname = $("#e1name").val();
     var enumber = $("#econtactno1").val();
+    var checked = document.getElementById("defaultCheck1").checked;
 
-    if (!(e1name == "" || erelation == "" || enumber == "")) {
+    if (!(e1name == "" || erelation == "" || enumber == "" || checked == false)) {
       // $("#submitdata").empty();
       e.preventDefault();
       values4 = {};
@@ -728,6 +731,11 @@ $("#finalclose").click(function(e) {
       console.log("Here..");
       console.log(values4);
       console.log("Filled participant parent data...");
+      dataComplete.EmergencyDetails = values4;
+      console.log("Added Emergency Details to global object");
+      console.log(dataComplete);
+      var myJSON = JSON.stringify(dataComplete);
+      console.log(myJSON);
       $("#exampleModalform4").modal("hide");
       $("#exampleModalthank").modal("show");
       $('#messagedetails').text("Payment for "+ values2.FirstName + " , Event Name");
