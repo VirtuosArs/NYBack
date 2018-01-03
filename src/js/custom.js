@@ -719,6 +719,7 @@ $("#finalclose").click(function(e) {
     var efname = $("#e1name").val();
     var enumber = $("#econtactno1").val();
     var checked = document.getElementById("defaultCheck1").checked;
+    console.log(checked);
 
     if (!(e1name == "" || erelation == "" || enumber == "" || checked == false)) {
       // $("#submitdata").empty();

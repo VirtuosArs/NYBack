@@ -713,7 +713,7 @@ header.masthead .mhr {
 .eventslist .thdata {
   color: #868e96;
   text-align: left;
-  font-size: 1.27rem;
+  font-size: 1rem;
   letter-spacing: 0.05rem;
   font-weight: 500;
 }
@@ -1204,15 +1204,29 @@ select {
   font-family: bebasneue;
 }
 
+.parenth5 {
+  margin: 0 14rem !important;
+}
+
+.emergencyh5 {
+  margin: 0 15rem !important;
+  padding-left: 3rem;
+}
+
 .thankhead {
-  margin: 0 14rem;
+  margin: 0 14rem !important;
 }
 
 @media (max-width: 414px) {
-  modal-header h5 {
+  .modal-header h5 {
+    margin: 0 !important;
     padding-left: 0 !important;
   }
   .thankhead {
+    padding-left: 0 !important;
+  }
+  .emergencyh5 {
+    margin: 0 !important;
     padding-left: 0 !important;
   }
 }

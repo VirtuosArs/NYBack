@@ -807,16 +807,30 @@ select {
     font-family: bebasneue;
 }
 
+.parenth5 {
+    margin: 0 14rem !important;
+}
+
+.emergencyh5 {
+    margin: 0 15rem!important;
+    padding-left: 3rem;
+}
+
 .thankhead {
     // padding-left: 34% !important;
-    margin: 0 14rem;
+    margin: 0 14rem !important;
 }
 
 @media (max-width: 414px) {
-    modal-header h5 {
+    .modal-header h5 {
+        margin: 0 !important;
         padding-left: 0 !important;
     }
     .thankhead {
+        padding-left: 0 !important;
+    }
+    .emergencyh5 {
+        margin: 0 !important;
         padding-left: 0 !important;
     }
 }
