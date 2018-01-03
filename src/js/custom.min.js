@@ -239,7 +239,15 @@ $(document).ready(function () {
   });
 
 
+$("#finalcloseicon").click(function(e) {
+  console.log("Final close....")
+  location.reload(true);
+});
 
+$("#finalclose").click(function(e) {
+  console.log("Final close....")
+  location.reload(true);
+});
 
 
 
@@ -361,15 +369,16 @@ $(document).ready(function () {
       console.log(countparticipant);
       console.log("dsfbj");
       console.log(totalpartcipant)
-      if( countparticipant-1 <= totalpartcipant) {
+      if( ((countparticipant-1) <= totalpartcipant) && (countparticipant > 2) )  {
         document.getElementById("form2final").reset();
+        $('#participantvalue').text("Participant # "+ (countparticipant - 1));
         console.log("HEfvsdhcd.....")
         $("#exampleModalform2").css("overflow", "auto");
         countparticipant++;
       }
       else{
         console.log("gdcgvndmbb");
-        console.log(countparticipant);
+        console.log(countparticipant);participantvalue
         console.log("dsfbjdfg");
         console.log(totalpartcipant)
       $("#exampleModalform2").modal("hide");

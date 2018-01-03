@@ -1103,8 +1103,8 @@
                             <!-- <label for="number" class="col-form-label">Batch</label> -->
                             <select id="batch" class="form-control" name="batch" placeholder="Batch" required>
                                 <option value="" disabled selected>Batch</option>
-                                <option value="1">14th to 15th</option>
-                                <option value="2">...</option>
+                                <option id="batchvalue1" value="May 30 - June 4, 2018">May 30 - June 4, 2018</option>
+                                <option id="batchvalue2" value="June 14 - June 19, 2018">June 14 - June 19, 2018</option>
                             </select>
                             <div class="invalid-feedback">
                                 Please select a batch
@@ -1144,7 +1144,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-center" id="exampleModalLabel">Participant</h5>
+                    <h5 class="modal-title text-center" id="participantvalue">Participant # 1</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1186,30 +1186,32 @@
                                 <!-- <input type="text" class="form-control" placeholder="Gender"> -->
                                 <select class="custom-select" name="gender" id="gender">
                                     <option value="" disabled selected>Gender</option>
-                                    <option value="1">Male</option>
-                                    <option value="2">Female</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                             <div class="col form-group">
                                 <select class="custom-select" id="bloodgroup" name="bloodgroup">
                                     <option value="" disabled selected>Blood Group</option>
-                                    <option value="1">O-positive</option>
-                                    <option value="2">O-negative</option>
-                                    <option value="3">A-positive</option>
-                                    <option value="4">A-negative</option>
-                                    <option value="5">B-positive</option>
-                                    <option value="6">B-negative</option>
-                                    <option value="7">AB-positive</option>
-                                    <option value="8">AB-negative</option>
+                                    <option value="O-positive">O-positive</option>
+                                    <option value="O-negative">O-negative</option>
+                                    <option value="A-positive">A-positive</option>
+                                    <option value="A-negative">A-negative</option>
+                                    <option value="B-positive">B-positive</option>
+                                    <option value="B-negative">B-negative</option>
+                                    <option value="AB-positive">AB-positive</option>
+                                    <option value="AB-negative">AB-negative</option>
                                 </select>
 
                             </div>
                             <div class="col form-group">
                                 <select class="custom-select" id="meal" name="meal" placeholder="Special Dietary needs" required>
                                     <option value="" disabled selected>Special Dietary needs</option>
-                                    <option value="1">Vej</option>
-                                    <option value="2">Non-vej</option>
-                                    <option value="2">Jain</option>
+                                    <option value="Any">Any</option>
+                                    <option value="Veg">Veg</option>
+                                    <option value="Non-veg">Non-veg</option>
+                                    <option value="Jain">Jain</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select dietary needs.
@@ -1269,10 +1271,10 @@
                         <div class="form-group">
                             <select class="custom-select" id="relation" name="relation" required>
                                 <option value="" disabled selected>Relationship with Participant</option>
-                                <option value="1">Mother</option>
-                                <option value="2">Father</option>
-                                <option value="1">Blood Relative</option>
-                                <option value="2">Legal Guardian</option>
+                                <option value="Mother">Mother</option>
+                                <option value="Father">Father</option>
+                                <option value="Blood Relative">Blood Relative</option>
+                                <option value="Legal Guardian">Legal Guardian</option>
                             </select>
                             <div class="invalid-feedback">
                                 Please provide relationship.
@@ -1304,9 +1306,9 @@
                             <div class="col-3 form-group">
                                 <select class="custom-select" id="contacttype1" name="contacttype1" required>
                                     <option value="" disabled selected>Tel1</option>
-                                    <option value="1">Home</option>
-                                    <option value="2">Office</option>
-                                    <option value="3">Mobile</option>
+                                    <option value="Home">Home</option>
+                                    <option value="Office">Office</option>
+                                    <option value="Mobile">Mobile</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select number type
@@ -1323,9 +1325,9 @@
                             <div class="col-3 form-group">
                                 <select class="custom-select" id="contacttype2" name="contacttype2">
                                     <option value="" disabled selected>Tel2</option>
-                                    <option value="1">Home</option>
-                                    <option value="2">Office</option>
-                                    <option value="3">Mobile</option>
+                                    <option value="Home">Home</option>
+                                    <option value="Office">Office</option>
+                                    <option value="Mobile">Mobile</option>
                                 </select>
                             </div>
                             <div class="col-9 form-group">
@@ -1380,10 +1382,10 @@
                             <div class="form-group">
                                     <select class="custom-select" id="erelation" name="erelation" required>
                                         <option value="" disabled selected>Emergency Contact Relationship with Participant</option>
-                                        <option value="1">Mother</option>
-                                        <option value="2">Father</option>
-                                        <option value="1">Blood Relative</option>
-                                        <option value="2">Legal Guardian</option>
+                                        <option value="Mother">Mother</option>
+                                        <option value="Father">Father</option>
+                                        <option value="Blood Relative">Blood Relative</option>
+                                        <option value="Legal Guardian">Legal Guardian</option>
                                     </select>
                                     <div class="invalid-feedback">
                                         Please provide relationship.
@@ -1409,10 +1411,10 @@
                                     <div class="form-group">
                                             <select class="custom-select" id="e2relation" name="e2relation">
                                                 <option value="" disabled selected>Emergency Contact Relationship with Participant</option>
-                                                <option value="1">Mother</option>
-                                                <option value="2">Father</option>
-                                                <option value="1">Blood Relative</option>
-                                                <option value="2">Legal Guardian</option>
+                                                <option value="Mother">Mother</option>
+                                                <option value="Father">Father</option>
+                                                <option value="Blood Relative">Blood Relative</option>
+                                                <option value="Legal Guardian">Legal Guardian</option>
                                             </select>
                                             <div class="invalid-feedback">
                                                 Please provide relationship.
@@ -1428,11 +1430,14 @@
                                             <div class="container-fluid">
                                                     <div class="row">
                                                         <div class="form-check">
-                                                            <input class="form-check-input checkboxn" type="checkbox" value="" id="defaultCheck1">
+                                                            <input class="form-check-input checkboxn" type="checkbox" value="" id="defaultCheck1" required>
                                                             <label class="form-check-label" for="defaultCheck1">
                                                                 "I, the parent/ legal guardian of the above mentioned participant(s) agree to the terms of use of Trailblazers
                                                                 <br>and want my child/ children to participate in this programme"
                                                             </label>
+                                                            <div class="invalid-feedback">
+                                                                    Please check the checkbox
+                                                                </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1465,7 +1470,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title thankhead" id="exampleModalLabel">Thank you for registering!</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true" id="finalcloseicon">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body thankyoumessage">
