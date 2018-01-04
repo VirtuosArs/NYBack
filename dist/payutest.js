@@ -118,7 +118,7 @@ var checkout = function () {
                     //     txnStatus: txnStatus,
                     //     txnMessage: txnMessage
                     // });
-                    console.log(response.response.status);
+                    console.log(response.status);
                     console.log(status + ' ' + txnStatus);
                     if (txnStatus == "CANCEL") {
                         // $http.post(festConfig.baseUrl + 'cancelPayment', {
@@ -163,7 +163,7 @@ var checkout = function () {
                             type: "POST",
                             url: url + 'validateResponse',
                             data: JSON.stringify({
-                                txnId: response.response.txnid,
+                                txnId: response.response.txnId,
                                 hash: response.response.hash,
                                 status: response.response.status,
                                 txnStatus: response.response.txnStatus,
@@ -207,7 +207,7 @@ var checkout = function () {
                                     // $location.path('/' + $routeParams.orgName + '/' + $routeParams.eventName + '/payment-success/t/' + response.response.txnid + '/a/' + response.response.amount + '/tst/' + "FAIL", {});
 
                                 }
-                                else if (validateResponse.data.data.status == true && (txnStatus == "SUCCESS" || txnStatus == "FAILED")) {
+                                else if (validateResponse.data.data.status == true && (txnStatus == "SUCCESS" || txnStatus == "FAIL")) {
                                     // heap.track('Bolt Checkout Response-HashValidated', {
                                     //     link: $routeParams.orgName + '/' + $routeParams.eventName,
                                     //     total: $scope.totalAmount,
