@@ -35,7 +35,7 @@ var url = "http://139.59.70.142:11002/api/v1/";
 //           "meal":"Veg",
 //           "dob":"",
 //           "age":"",
-//           "nationality":"",
+//           "nationali+ 'initiatePayment'ty":"",
 //           "allergies":""
 //        },
 //        {  
@@ -97,7 +97,7 @@ var checkout = function () {
             // lastname: user.lastname,
             // email: user.email,
             // phone: user.mobile,
-            productinfo: JSON.stringify(clientData),
+            productinfo: initiatedData.productInfo,
             surl: 'https://sucess-url.in',
             furl: 'https://fail-url.in',
             udf3: initiatedData.txnId
@@ -118,7 +118,7 @@ var checkout = function () {
                     //     txnStatus: txnStatus,
                     //     txnMessage: txnMessage
                     // });
-                    console.log(response.status);
+                    console.log(response.response.status);
                     console.log(status + ' ' + txnStatus);
                     if (txnStatus == "CANCEL") {
                         // $http.post(festConfig.baseUrl + 'cancelPayment', {
@@ -128,10 +128,10 @@ var checkout = function () {
                         $.ajax({
                             type: "POST",
                             url: url + 'cancelPayment',
-                            data: {
+                            data: JSON.stringify({
                                 txnId: initiatedData.txnId,
                                 status: 2 //user has aborted or transaction canceled
-                            },
+                            }),
                             contentType: "application/json",
                             dataType: "json",
                             success: function(response) {
@@ -162,13 +162,13 @@ var checkout = function () {
                         $.ajax({
                             type: "POST",
                             url: url + 'validateResponse',
-                            data: {
+                            data: JSON.stringify({
                                 txnId: response.response.txnid,
                                 hash: response.response.hash,
                                 status: response.response.status,
                                 txnStatus: response.response.txnStatus,
                                 details: response.response
-                            },
+                            }),
                             contentType: "application/json",
                             dataType: "json",
                             success: function (validateResponse) {
@@ -176,10 +176,10 @@ var checkout = function () {
                                 if (validateResponse.data.data.status == false) {
                                     console.log("errorHash");
                                     console.log(false);
-                                    $http.post(url + 'cancelPayment', {
-                                        txnId: response.response.txnid,
-                                        status: 6 //hash is not validated
-                                    });
+                                    // $http.post(url + 'cancelPayment', {
+                                    //     txnId: response.response.txnid,
+                                    //     status: 6 //hash is not validated
+                                    // });
                                     $.ajax({
                                         type: "POST",
                                         url: url + 'cancelPayment',
@@ -207,7 +207,7 @@ var checkout = function () {
                                     // $location.path('/' + $routeParams.orgName + '/' + $routeParams.eventName + '/payment-success/t/' + response.response.txnid + '/a/' + response.response.amount + '/tst/' + "FAIL", {});
 
                                 }
-                                else if (validateResponse.data.data.status == true && (txnStatus == "SUCCESS" || txnStatus == "FAIL")) {
+                                else if (validateResponse.data.data.status == true && (txnStatus == "SUCCESS" || txnStatus == "FAILED")) {
                                     // heap.track('Bolt Checkout Response-HashValidated', {
                                     //     link: $routeParams.orgName + '/' + $routeParams.eventName,
                                     //     total: $scope.totalAmount,
@@ -239,10 +239,10 @@ var checkout = function () {
                                     $.ajax({
                                         type: "POST",
                                         url: url + 'cancelPayment',
-                                        data: {
+                                        data: JSON.stringify({
                                             txnId: response.response.txnid,
                                             status: 2 //user has aborted or transaction canceled
-                                        },
+                                        }),
                                         contentType: "application/json",
                                         dataType: "json",
                                         success: function(response) {
@@ -272,10 +272,10 @@ var checkout = function () {
                                     $.ajax({
                                         type: "POST",
                                         url: url + 'cancelPayment',
-                                        data: {
+                                        data: JSON.stringify({
                                             txnId: response.response.txnid,
                                             status: 5 //app error no conditions match
-                                        },
+                                        }),
                                         contentType: "application/json",
                                         dataType: "json",
                                         success: function(response) {
@@ -302,10 +302,10 @@ var checkout = function () {
                                 $.ajax({
                                     type: "POST",
                                     url: url + 'cancelPayment',
-                                    data: {
-                                        txnId: $scope.initiatedData.txnId,
+                                    data: JSON.stringify({
+                                        txnId: initiatedData.txnId,
                                         status: 5 //app error no conditions match
-                                    },
+                                    }),
                                     contentType: "application/json",
                                     dataType: "json",
                                     success: function(response) {
@@ -346,10 +346,10 @@ var checkout = function () {
                     $.ajax({
                         type: "POST",
                         url: url + 'cancelPayment',
-                        data: {
+                        data: JSON.stringify({
                             txnId: initiatedData.txnId,
                             status: 5 //app error no conditions match
-                        },
+                        }),
                         contentType: "application/json",
                         dataType: "json",
                         success: function(response) {
@@ -378,10 +378,10 @@ var checkout = function () {
         $.ajax({
             type: "POST",
             url: url + 'cancelPayment',
-            data: {
+            data: JSON.stringify({
                 txnId: initiatedData.txnId,
                 status: 5 //app error no conditions match
-            },
+            }),
             contentType: "application/json",
             dataType: "json",
             success: function(response) {
