@@ -1,5 +1,77 @@
+// import { error } from "util";
+
 var initiatedData = null;
-var url = "";
+var url = "http://139.59.70.142:11002/api/v1/";
+// var clientData = {  
+//     "bookingform":{  
+//        "numberpart":"3",
+//        "batch":"May 30 - June 4, 2018",
+//        "price":"13500",
+//        "totalprice":"40500"
+//     },
+//     "participantsDetails":[  
+//        {  
+//           "FirstName":"Test1 FN",
+//           "MiddleName":"Test1 MN",
+//           "LastName":"Test1 LN",
+//           "emailid":"test1@test1.com",
+//           "parentoccupation":"",
+//           "gender":"Male",
+//           "bloodgroup":"O-positive",
+//           "meal":"Non-veg",
+//           "dob":"",
+//           "age":"",
+//           "nationality":"",
+//           "allergies":""
+//        },
+//        {  
+//           "FirstName":"T2 FN",
+//           "MiddleName":"T2 MN",
+//           "LastName":"T2 LN",
+//           "emailid":"test2@test2.com",
+//           "parentoccupation":"",
+//           "gender":"Female",
+//           "bloodgroup":"O-negative",
+//           "meal":"Veg",
+//           "dob":"",
+//           "age":"",
+//           "nationality":"",
+//           "allergies":""
+//        },
+//        {  
+//           "FirstName":"T3 FN",
+//           "MiddleName":"T3 MN",
+//           "LastName":"T3 LN",
+//           "emailid":"test3@test3.com",
+//           "parentoccupation":"",
+//           "gender":"Male",
+//           "bloodgroup":"B-positive",
+//           "meal":"Any",
+//           "dob":"",
+//           "age":"",
+//           "nationality":"",
+//           "allergies":""
+//        }
+//     ],
+//     "ParentDetails":{  
+//        "relation":"Father",
+//        "pfirstname":"Test F FN",
+//        "pmiddlename":"Test F MN",
+//        "plastname":"Test F LN",
+//        "address":"TEst Address",
+//        "contacttype1":"Mobile",
+//        "contactno1":"999999999",
+//        "contactno2":"",
+//        "pemail":"testf@testf.com"
+//     },
+//     "EmergencyDetails":{  
+//        "e1name":"Test e1",
+//        "erelation":"Mother",
+//        "econtactno1":"9999999991",
+//        "e2name":"",
+//        "econtactno2":""
+//     }
+//  };
 
 var checkout = function () {
     // heap.track('Bolt Checkout Initiated', {
@@ -15,6 +87,7 @@ var checkout = function () {
             txnid: initiatedData.txnId,
             hash: initiatedData.hash,
             amount: parseFloat(clientData.bookingform.totalprice).toFixed(1) + '',
+            // amount: clientData.bookingform.totalprice,
             firstname: clientData.ParentDetails.pfirstname,
             lastname: clientData.ParentDetails.plastname,
             email: clientData.ParentDetails.pemail,
@@ -24,7 +97,7 @@ var checkout = function () {
             // lastname: user.lastname,
             // email: user.email,
             // phone: user.mobile,
-            productinfo: initiatedData.productInfo,
+            productinfo: JSON.stringify(clientData),
             surl: 'https://sucess-url.in',
             furl: 'https://fail-url.in',
             udf3: initiatedData.txnId
@@ -59,7 +132,8 @@ var checkout = function () {
                                 txnId: initiatedData.txnId,
                                 status: 2 //user has aborted or transaction canceled
                             },
-                            dataType: json,
+                            contentType: "application/json",
+                            dataType: "json",
                             success: function(response) {
                                 console.log(response.data);
                                 
@@ -95,7 +169,8 @@ var checkout = function () {
                                 txnStatus: response.response.txnStatus,
                                 details: response.response
                             },
-                            dataType: json,
+                            contentType: "application/json",
+                            dataType: "json",
                             success: function (validateResponse) {
                                 console.log('inside-validate');
                                 if (validateResponse.data.data.status == false) {
@@ -112,7 +187,7 @@ var checkout = function () {
                                             txnId: response.response.txnid,
                                             status: 6 //hash is not validated
                                         },
-                                        dataType: json,
+                                        dataType: "json",
                                         success: function(response) {
                                             console.log(response.data);
                                             
@@ -168,7 +243,8 @@ var checkout = function () {
                                             txnId: response.response.txnid,
                                             status: 2 //user has aborted or transaction canceled
                                         },
-                                        dataType: json,
+                                        contentType: "application/json",
+                                        dataType: "json",
                                         success: function(response) {
                                             console.log(response.data);
                                             
@@ -200,7 +276,8 @@ var checkout = function () {
                                             txnId: response.response.txnid,
                                             status: 5 //app error no conditions match
                                         },
-                                        dataType: json,
+                                        contentType: "application/json",
+                                        dataType: "json",
                                         success: function(response) {
                                             console.log(response.data);
                                             
@@ -229,7 +306,8 @@ var checkout = function () {
                                         txnId: $scope.initiatedData.txnId,
                                         status: 5 //app error no conditions match
                                     },
-                                    dataType: json,
+                                    contentType: "application/json",
+                                    dataType: "json",
                                     success: function(response) {
                                         console.log(response.data);
                                         
@@ -269,10 +347,11 @@ var checkout = function () {
                         type: "POST",
                         url: url + 'cancelPayment',
                         data: {
-                            txnId: $scope.initiatedData.txnId,
+                            txnId: initiatedData.txnId,
                             status: 5 //app error no conditions match
                         },
-                        dataType: json,
+                        contentType: "application/json",
+                        dataType: "json",
                         success: function(response) {
                             console.log(response.data);
                             
@@ -295,15 +374,16 @@ var checkout = function () {
         //     txnId: txnId,
         //     status: 5 //app error no conditions match
         // })
-
+        console.log(initiatedData);
         $.ajax({
             type: "POST",
             url: url + 'cancelPayment',
             data: {
-                txnId: txnId,
+                txnId: initiatedData.txnId,
                 status: 5 //app error no conditions match
             },
-            dataType: json,
+            contentType: "application/json",
+            dataType: "json",
             success: function(response) {
                 console.log(response.data);
                 
@@ -316,9 +396,12 @@ var checkout = function () {
 
 
 var initiatePayment = function () {
-    var initiatedData = {};
+
     var selectedEntryType = [];
     var itemString = '';
+    console.log("In initiate Payment....");
+    console.log("Client Data==>");
+    console.log(clientData);
     // $scope.event.entryType.forEach((entryType, index) => {
     //     if (entryType.quantity > 0) {
     //         selectedEntryType.push(entryType);
@@ -362,20 +445,27 @@ var initiatePayment = function () {
     //     items: itemString,
     //     total: $scope.totalAmount
     // });
-
+    var vclientData = {
+        clientData: clientData
+    };
+    console.log()
     $.ajax({
         type: "POST",
-        url: url,
-        data: clientData,
-        // dataType: json,
+        url: url + 'initiatePayment',
+        data: JSON.stringify(vclientData),
+        contentType: "application/json",
+        dataType: "json",
         success: function(response) {
             console.log(response.data);
             initiatedData = {
-                hash: response.data.data.hash, 
-                txnId: response.data.data.txnId, 
-                productInfo: response.data.data.transactionId
+                hash: response.data.hash, 
+                txnId: response.data.txnId, 
+                productInfo: response.data.transactionId
             };
             checkout();
+        },
+        error: function(error) {
+            console.log(error)
         }
     });
 
@@ -408,8 +498,83 @@ var initiatePayment = function () {
 
 
 $('#onlinepay').click(function (e) {
-    
+    console.log("In Fourth Cheque form");
+    // console.log(count);
+    var erelation = $('#erelation').find(":selected").val();
+    var efname = $("#e1name").val();
+    var enumber = $("#econtactno1").val();
+    var checked = document.getElementById("defaultCheck1").checked;
+    console.log(checked);
+
+    if (!(e1name == "" || erelation == "" || enumber == "")) {
+      // $("#submitdata").empty();
+      e.preventDefault();
+      values4 = {};
+      $.each($("#form4final").serializeArray(), function (i, field) {
+        values4[field.name] = field.value;
+        // valueform1[field.name] = field.value;
+      });
+      console.log("Here..");
+      console.log(values4);
+      console.log("Filled participant parent data...");
+      dataComplete.EmergencyDetails = values4;
+      // clientData.EmergencyDetails = values4;
+      console.log("Added Emergency Details to global object");
+      console.log(dataComplete);
+      var myJSON = JSON.stringify(dataComplete);
+      clientData = dataComplete;
+      console.log(myJSON);
+      console.log(clientData);
+    //   $("#exampleModalform4").modal("hide");
+    //   $("#exampleModalthank").modal("show");
+      var total = valuesParticipant.length;
+      var namestring = "";
+      while(total--) {
+        if(valuesParticipant[total].FirstName.length > 0)
+        {
+          namestring = namestring + valuesParticipant[total].FirstName + ", ";
+        }
+        else
+          console.log("Looping complete");
+      }
+    //   $('#messagedetails').text(namestring + " "+ eventNameT + "'");
+    //   $("body").css("overflow", "hidden");
+    //   $("#exampleModalthank").css("overflow", "auto");
+
+      // $("#submitdata").append("Name: " + pname + "Values" + values);
+    } else {
+      // alert("Please Fill All Fields.");
+      console.log("Else..");
+      var form = document.getElementById("form4final");
+      
+      form.addEventListener(
+        "submit",
+        function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add("was-validated");
+          // e.preventDefault();
+          console.log("Clcked submitt......");
+          var values4 = {};
+          // var pname = $("#numberpart").val();
+          $.each($("#form4final").serializeArray(), function (i, field) {
+            values4[field.name] = field.value;
+          });
+        },
+        false
+      );
+    }
+
+
+
         //Integrate Pay U code here
+        
+        // clientData = JSON.stringify(dataComplete);
+        clientData = dataComplete;
+        console.log(clientData);
+        console.log("Clicked online")
         initiatePayment();
     
 });

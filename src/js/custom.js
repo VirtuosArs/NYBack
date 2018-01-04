@@ -14,7 +14,7 @@ var dataComplete = {
 };
 var eventNameT = "";
 var tp1 = "";
-var clientData ;
+var clientData = {};
 
 
 (function ($) {
@@ -324,6 +324,7 @@ $(document).ready(function () {
       console.log("Filled booking data...");
       // dataComplete[bookingform] = values;
       dataComplete.bookingform = values;
+      // clientData.bookingform = values;
       console.log("Added to global object");
       $("#exampleModalform1").modal("hide");
       $("#exampleModalform2").modal("show");
@@ -612,9 +613,11 @@ $("#finalclose").click(function(e) {
 
   $("#detailsubmit").click(function (e) {
     dataComplete.participantsDetails = valuesParticipant;
+    // clientData.participantsDetails = valuesParticipant;
     console.log("Added Participants to global object");
     console.log("In third form");
     console.log(count);
+    console.log(clientData);
     var relation = $('#relation').find(":selected").val();
     var pfname = $("#pfname").val();
     var plname = $("#plname").val();
@@ -640,6 +643,7 @@ $("#finalclose").click(function(e) {
       console.log(values3);
       console.log("Filled participant parent data...");
       dataComplete.ParentDetails = values3;
+      // clientData.ParentDetails = values3;
       console.log("Added Paent Details to global object");
       $("#exampleModalform3").modal("hide");
       $("#exampleModalform4").modal("show");
@@ -721,10 +725,11 @@ $("#finalclose").click(function(e) {
       console.log(values4);
       console.log("Filled participant parent data...");
       dataComplete.EmergencyDetails = values4;
+      // clientData.EmergencyDetails = values4;
       console.log("Added Emergency Details to global object");
       console.log(dataComplete);
       var myJSON = JSON.stringify(dataComplete);
-      clientData = JSON.stringify(dataComplete);
+      clientData = dataComplete;
       console.log(myJSON);
       console.log(clientData);
       $("#exampleModalform4").modal("hide");
