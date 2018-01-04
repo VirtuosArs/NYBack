@@ -12,7 +12,7 @@ var url = "http://139.59.70.142:11002/api/v1/";
 //     "participantsDetails":[  
 //        {  
 //           "FirstName":"Test1 FN",
-//           "MiddleName":"Test1 MN",
+//           "MiddleName":"Test1 MN",errorExc
 //           "LastName":"Test1 LN",
 //           "emailid":"test1@test1.com",
 //           "parentoccupation":"",
@@ -84,6 +84,7 @@ var checkout = function () {
     try {
         bolt.launch({
             key: 'k8Dvwvqw',
+            // key: 'gtKFFx',
             txnid: initiatedData.txnId,
             hash: initiatedData.hash,
             amount: parseFloat(clientData.bookingform.totalprice).toFixed(1) + '',
